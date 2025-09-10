@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reality Architect — Sounak Ghosh</title>
+  <meta name="description" content="Portfolio of Sounak Ghosh — Senior Technical Designer. Reality Architect theme with XR, VR, Systems, AI, and more."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Three.js for subtle interactive 3D background -->
+  <script defer src="https://unpkg.com/three@0.159.0/build/three.min.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body>
+<canvas id="bg"></canvas>
+<header class="site-header">
+  <a class="brand" href="index.html">
+    <span class="logo-cube" aria-hidden="true"></span>
+    <span>Reality Architect</span>
+  </a>
+  <nav>
+    <a href="index.html#home">Home</a>
+    <a href="index.html#skills">Skills</a>
+    <a href="index.html#projects">Projects</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+</header>
+<main>
+
+<section class="section narrow">
+  <a class="back" href="index.html#projects">← Back to Projects</a>
+  <h1 class="project-title">Transfr VR Training</h1>
+  <p class="project-intro">VR Training, Simulation development, and Career education.</p>
+  <ul class="project-points"><li>Built Design Systems for XR Interactions to standardize mechanics and feedback.</li><li>Developed proprietary Unity SDK tools for faster iteration and scalability.</li><li>Created AI workflow automations for script generation and asset pipelines.</li></ul>
+</section>
+
+</main>
+<footer class="site-footer">
+  <p>© <span id="year"></span> Sounak Ghosh — Reality Architect.</p>
+  <div class="socials">
+    <a href="https://www.linkedin.com/in/beingsounak/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/sounakivan" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</footer>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

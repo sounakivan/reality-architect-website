@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reality Architect — Sounak Ghosh</title>
+  <meta name="description" content="Portfolio of Sounak Ghosh — Senior Technical Designer. Reality Architect theme with XR, VR, Systems, AI, and more."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Three.js for subtle interactive 3D background -->
+  <script defer src="https://unpkg.com/three@0.159.0/build/three.min.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body>
+<canvas id="bg"></canvas>
+<header class="site-header">
+  <a class="brand" href="index.html">
+    <span class="logo-cube" aria-hidden="true"></span>
+    <span>Reality Architect</span>
+  </a>
+  <nav>
+    <a href="index.html#home">Home</a>
+    <a href="index.html#skills">Skills</a>
+    <a href="index.html#projects">Projects</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+</header>
+<main>
+
+<section id="home" class="hero">
+  <div class="hero-content">
+    <h1><span class="fade">Sounak Ghosh</span><br/><small>Senior Technical Designer</small></h1>
+    <p class="tagline">Designing realities where learning meets wonder. I build XR training, reusable design systems, and AI‑powered pipelines.</p>
+    <div class="cta">
+      <a class="btn primary" href="#projects">View Projects</a>
+      <a class="btn ghost" href="#skills">See Skills</a>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="section">
+  <h2>Skills & Offerings</h2>
+  <div class="grid skills-grid">
+    <div class="card tilt">
+      <h3>XR Design</h3>
+      <p>Interaction models, onboarding flows, spatial UI, haptic feedback patterns.</p>
+    </div>
+    <div class="card tilt">
+      <h3>Game Development</h3>
+      <p>Unity/Unreal prototyping, gameplay systems, performance profiling.</p>
+    </div>
+    <div class="card tilt">
+      <h3>Systems Design</h3>
+      <p>Reusable interaction templates, modular SDKs, design ops & docs.</p>
+    </div>
+    <div class="card tilt">
+      <h3>AI Automation</h3>
+      <p>Script generation bots, asset pipelines, RAG tools, evals, agents.</p>
+    </div>
+    <div class="card tilt">
+      <h3>3D Animation</h3>
+      <p>Stylized motion, previz, camera language, cinematic beats for learning.</p>
+    </div>
+    <div class="card tilt">
+      <h3>Narrative Design</h3>
+      <p>Coach VO, scenario design, adaptive prompts, assessment‑aware flows.</p>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="section">
+  <h2>Projects</h2>
+  <div class="grid project-grid">
+    <a class="card link tilt" href="project-transfr.html">
+      <h3>Transfr VR Training</h3>
+      <p>Design Systems for XR Interactions, Unity SDK Tools, AI Workflow Automations.</p>
+      <span class="arrow">→</span>
+    </a>
+    <a class="card link tilt" href="project-inner-light.html">
+      <h3>Inner Light</h3>
+      <p>Embodied VR meditation using EEG to visualize a living avatar of light.</p>
+      <span class="arrow">→</span>
+    </a>
+    <a class="card link tilt" href="project-looking-inside-cells.html">
+      <h3>Looking Inside Cells</h3>
+      <p>Educational VR on cellular biology for middle schoolers; Verizon‑sponsored research.</p>
+      <span class="arrow">→</span>
+    </a>
+    <a class="card link tilt" href="project-freehand-assistant.html">
+      <h3>Freehand Assistant</h3>
+      <p>Voice + gaze‑controlled hand interactions in XR for accessibility.</p>
+      <span class="arrow">→</span>
+    </a>
+  </div>
+</section>
+
+<section id="contact" class="section">
+  <h2>Contact</h2>
+  <p>Want to build the future of learning together? Say hello.</p>
+  <form class="contact-form" action="https://formsubmit.co/sounaktheghosh@gmail.com" method="POST">
+    <!-- FormSubmit configuration -->
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_subject" value="Portfolio Inquiry — Reality Architect">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_next" value="thanks.html">
+
+    <div class="form-row">
+      <label for="name">Name</label>
+      <input id="name" name="name" type="text" required placeholder="Your name" />
+    </div>
+    <div class="form-row">
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" required placeholder="you@example.com" />
+    </div>
+    <div class="form-row">
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" required placeholder="Tell me about your project…"></textarea>
+    </div>
+    <button class="btn primary" type="submit">Send Message</button>
+  </form>
+</section>
+
+</main>
+<footer class="site-footer">
+  <p>© <span id="year"></span> Sounak Ghosh — Reality Architect.</p>
+  <div class="socials">
+    <a href="https://www.linkedin.com/in/beingsounak/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/sounakivan" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</footer>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
