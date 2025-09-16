@@ -48,7 +48,7 @@ h1 small{font-weight:400; color:#B2A3FF}
 h2{font-family:"Space Grotesk"; font-size:clamp(28px,3.5vw,42px); margin:0 0 24px}
 .grid{display:grid; gap:18px}
 .skills-grid{grid-template-columns:repeat(3,1fr); grid-template-rows:repeat(2,1fr)}
-.project-grid{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.project-grid{grid-template-columns:repeat(3,1fr); grid-template-rows:repeat(2,1fr)}
 
 .card{
   background:rgba(255,255,255,0.05);
@@ -114,11 +114,38 @@ input::placeholder, textarea::placeholder{color:#8fa2bd}
 .tilt{transform-style:preserve-3d; perspective:800px}
 .tilt:hover{transform:translateY(-2px) rotateX(1deg) rotateY(-1deg); background:rgba(255,255,255,0.08); box-shadow:0 12px 40px rgba(0,0,0,0.4)}
 
+/* Project card specific styles */
+.project-card-image{
+  width:100%;
+  height:120px;
+  object-fit:cover;
+  border-radius:12px;
+  margin-bottom:16px;
+}
+.project-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin-top:12px;
+}
+.project-tag{
+  background:linear-gradient(135deg, var(--accent2), var(--accent));
+  color:#081018;
+  font-size:0.75rem;
+  font-weight:600;
+  padding:4px 8px;
+  border-radius:6px;
+  text-transform:uppercase;
+  letter-spacing:0.5px;
+}
+
 /* Responsive tweaks */
 @media (max-width:720px){
   .site-header nav a{margin-left:12px}
   .skills-grid{grid-template-columns:repeat(2,1fr); grid-template-rows:repeat(3,1fr)}
+  .project-grid{grid-template-columns:repeat(2,1fr); grid-template-rows:repeat(3,1fr)}
 }
 @media (max-width:480px){
   .skills-grid{grid-template-columns:1fr; grid-template-rows:repeat(6,1fr)}
+  .project-grid{grid-template-columns:1fr; grid-template-rows:repeat(6,1fr)}
 }
