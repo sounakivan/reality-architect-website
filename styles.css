@@ -96,7 +96,7 @@ input::placeholder, textarea::placeholder{color:#8fa2bd}
 .project-title{font-size:clamp(32px,4.5vw,56px); margin:8px 0 8px}
 .project-intro{color:white}
 .project-points{line-height:1.7}
-.section.narrow p{font-size:1.1rem; line-height:1.6}
+.section.narrow p{font-size:1.1rem; line-height:1.6; padding:12px 0}
 .image-placeholder{
   background:rgba(255,255,255,0.03);
   border:2px dashed rgba(255,255,255,0.1);
