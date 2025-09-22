@@ -94,7 +94,7 @@ input::placeholder, textarea::placeholder{color:#8fa2bd}
 
 .back{color:var(--muted); text-decoration:none}
 .project-title{font-size:clamp(32px,4.5vw,56px); margin:8px 0 8px}
-.project-intro{color:var(--muted)}
+.project-intro{color:white}
 .project-points{line-height:1.7}
 .section.narrow p{font-size:1.1rem; line-height:1.6}
 .image-placeholder{
@@ -123,6 +123,13 @@ input::placeholder, textarea::placeholder{color:#8fa2bd}
   margin:24px 0;
 }
 
+.images-grid-3x1{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:24px;
+  margin:24px 0;
+}
+
 .image-container{
   text-align:center;
 }
@@ -140,6 +147,10 @@ input::placeholder, textarea::placeholder{color:#8fa2bd}
   padding-bottom:56.25%; /* 16:9 aspect ratio */
   height:0;
   overflow:hidden;
+}
+
+.video-with-bottom-margin{
+  margin-bottom:48px;
 }
 .video-container iframe{
   position:absolute;
@@ -195,6 +206,7 @@ input::placeholder, textarea::placeholder{color:#8fa2bd}
   .project-grid{grid-template-columns:repeat(2,1fr); grid-template-rows:repeat(3,1fr)}
   .videos-grid{grid-template-columns:1fr; gap:18px}
   .images-grid-2x1{grid-template-columns:1fr; gap:18px}
+  .images-grid-3x1{grid-template-columns:1fr; gap:18px}
 }
 @media (max-width:480px){
   .skills-grid{grid-template-columns:1fr; grid-template-rows:repeat(6,1fr)}
