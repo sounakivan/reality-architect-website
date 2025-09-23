@@ -130,6 +130,14 @@ input::placeholder, textarea::placeholder{color:#8fa2bd}
   margin:24px 0;
 }
 
+.images-grid-2x2{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  grid-template-rows:repeat(2, 1fr);
+  gap:24px;
+  margin:24px 0;
+}
+
 .image-container{
   text-align:center;
 }
@@ -158,6 +166,18 @@ input::placeholder, textarea::placeholder{color:#8fa2bd}
   left:0;
   width:100%;
   height:100%;
+  border-radius:12px;
+  box-shadow:0 8px 32px rgba(0,0,0,0.3);
+}
+
+.steam-widget{
+  text-align:center;
+  margin:24px 0;
+}
+
+.steam-widget iframe{
+  max-width:100%;
+  height:auto;
   border-radius:12px;
   box-shadow:0 8px 32px rgba(0,0,0,0.3);
 }
@@ -207,6 +227,7 @@ input::placeholder, textarea::placeholder{color:#8fa2bd}
   .videos-grid{grid-template-columns:1fr; gap:18px}
   .images-grid-2x1{grid-template-columns:1fr; gap:18px}
   .images-grid-3x1{grid-template-columns:1fr; gap:18px}
+  .images-grid-2x2{grid-template-columns:1fr; gap:18px}
 }
 @media (max-width:480px){
   .skills-grid{grid-template-columns:1fr; grid-template-rows:repeat(6,1fr)}

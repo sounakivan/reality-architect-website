@@ -32,8 +32,43 @@
 <section class="section narrow">
   <a class="back" href="index.html#projects">← Back to Projects</a>
   <h1 class="project-title">Inner Light</h1>
-  <p class="project-intro">An embodied VR meditation on Light using EEG to visualize a virtual body (avatar).</p>
-  <ul class="project-points"><li>Real‑time EEG processing mapped to avatar glow, pulse, and geometry.</li><li>Explores neurofeedback for calm‑focus states in immersive meditation.</li><li>Research‑driven narrative design to support introspection and agency.</li></ul>
+  
+  <p class="project-intro">Inner Light is a meditative VR experience that provides audio-visual cues based on a player's brain activity (EEG) to induce a relaxed but focused mental state. It offers a unique conceptualization of the body-mind complex, asking questions about our mind/brain connection's (depicted by EEG waves) influence on our body, as well as who we are beyond it. Through this experience, I invite participants to embody their own mental frequencies and, finally, discover themselves in an out-of-body experience.</p>
+  
+  <div class="video-container">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/DdbErMHHXC4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  </div>
+  
+  <p>This project is part of my Masters Thesis that explored the therapeutic uses of VR and biosensing technologies like EEG, EMG, breath, etc.</p>
+  
+  <div class="image-container">
+    <img src="Images/eeg vr feedback loop.png" alt="EEG VR Feedback Loop" />
+  </div>
+  
+  <h2>Setup: Hardware + Software</h2>
+  
+  <ul>
+    <li><strong>Emotiv Insight (hardware)</strong> is an EEG headset with 5 channels (AF3, AF4, T7, T8, Pz) and it transmits the raw signal data wirelessly through bluetooth to the computer.</li>
+    <li><strong>Emotiv Launcher (software)</strong> connects with the EEG headset and streams data over the cloud for processing/decoding using JSON and websockets to send/receive data.</li>
+    <li><strong>Cortex API for Unity (software)</strong> plugs into Unity and communicates with the Emotiv Launcher to receive processed data from the cloud. This data can then be utilized within the game engine to control parameters.</li>
+    <li><strong>Oculus Rift / HTC Vive (hardware)</strong> as PC VR setup, currently running on a MSI laptop. My input system (XRTK) within Unity is agnostic to hardware.</li>
+    <li><strong>VR application (game)</strong> is the prototype itself in which all the components come together audio-visually. It deals with the context and experiential aspect. The design decisions are based on my research and artistic vision.</li>
+  </ul>
+  
+  <div class="images-grid-2x2">
+    <div class="image-container">
+      <img src="Images/EEG headset.png" alt="EEG Headset" />
+    </div>
+    <div class="image-container">
+      <img src="Images/EEG data.png" alt="EEG Data" />
+    </div>
+    <div class="image-container">
+      <img src="Images/user test 1.png" alt="User Test 1" />
+    </div>
+    <div class="image-container">
+      <img src="Images/user test 2.png" alt="User Test 2" />
+    </div>
+  </div>
 </section>
 
 </main>
