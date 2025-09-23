@@ -31,9 +31,79 @@
 
 <section class="section narrow">
   <a class="back" href="index.html#projects">← Back to Projects</a>
-  <h1 class="project-title">Freehand Assistant</h1>
-  <p class="project-intro">Voice and gaze‑controlled hand interactions in XR to enable people with hand disabilities.</p>
-  <ul class="project-points"><li>Hands‑free selection, manipulation, and UI control via gaze + speech.</li><li>Accessible interaction patterns evaluated with target users.</li><li>Prototype architecture for platform‑agnostic deployment.</li></ul>
+  
+  <section id="freehand-assistant-xr" class="project">
+    <h1 class="project-title">Freehand Assistant XR</h1>
+    <p><strong>Voice + gaze-controlled hand interactions for people with arm/hand disabilities</strong></p>
+
+    <h2>Problem & Opportunity</h2>
+    <ul>
+      <li>Most XR systems assume intact hand/arm mobility (controllers or hand-tracking), excluding users with limb paralysis, amputations, or temporary injuries.</li>
+      <li>Also relevant for situational constraints (e.g. hands busy) and enterprise workers who will rely on XR.</li>
+      <li>Goal: Enable inclusive, usable XR interaction <em>without</em> requiring full hand function or specialized hardware.</li>
+    </ul>
+
+    <h2>Research & Insights</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Method</th>
+          <th>What I did</th>
+          <th>What I learned</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Interviews</td>
+          <td>Spoke with 8 people from the disabled community and XR designers/devs.</td>
+          <td>Need for device-agnostic tools, plug-and-play usability; balance precision with natural feel; lack of feedback frustrates users.</td>
+        </tr>
+        <tr>
+          <td>Participatory Observation</td>
+          <td>Built rapid prototypes at hackathons (NYC, Futures NI / SideQuest).</td>
+          <td>Tracking errors and UI affordances affect usability; feedback loops critical for user trust.</td>
+        </tr>
+        <tr>
+          <td>Prototypes & Wireframes</td>
+          <td>Laser/gaze physical sim, Figma wireframes, "repair engine" task scenarios.</td>
+          <td>Voice + gaze combo must feel intuitive; icons and indicators offset lack of haptics; onboarding is essential.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Feature & Interaction Design</h2>
+    <ul>
+      <li><strong>Voice commands:</strong> "Grab," "pick up" triggers manipulation; objects fly toward user when appropriate.</li>
+      <li><strong>Gaze-based pointing:</strong> Teleportation and movement based on gaze trajectory.</li>
+      <li><strong>Step-by-step training mode:</strong> Guided practice (e.g., engine-gear repair) before free use.</li>
+      <li><strong>Visual feedback:</strong> Icons and indicators provide clarity and confidence in absence of haptics.</li>
+    </ul>
+
+    <h2>Design Process</h2>
+    <ol>
+      <li><strong>Define users & scope:</strong> Focused on limb-hand disabilities and situational needs.</li>
+      <li><strong>Ideation & sketches:</strong> Explored gaze/voice combos and feedback indicators.</li>
+      <li><strong>Lo-fi prototypes:</strong> Figma wireframes and physical laser sim.</li>
+      <li><strong>User testing:</strong> Validated onboarding flow, teleportation, and training scenario.</li>
+      <li><strong>Feature prioritization:</strong> Used card sorting to identify recurring interactions.</li>
+    </ol>
+
+    <h2>Outcomes & Learnings</h2>
+    <ul>
+      <li>Prioritize features early to avoid scope creep.</li>
+      <li>Simulating real-world perception is key to intuitive XR interactions.</li>
+      <li>Frequent VR prototyping uncovers friction points quickly.</li>
+    </ul>
+
+    <p><em>Accessibility isn't a constraint—it's an opportunity to reimagine interaction and unlock unconventional capabilities.</em></p>
+
+    <h2>What's Next</h2>
+    <ul>
+      <li>Build a mid-fidelity prototype and validate through additional user testing.</li>
+      <li>Expand beyond training to support daily tasks and creative workflows.</li>
+      <li>Integrate NLP/ML for more natural voice recognition and adaptability.</li>
+    </ul>
+  </section>
 </section>
 
 </main>
