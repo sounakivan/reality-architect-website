@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Divine Waltz — Sounak Ghosh</title>
+  <meta name="description" content="Short mixed-media animated film about the grandeur of life, self-discovery and individuation. Based on a poem. Portfolio of Sounak Ghosh — Senior Technical Designer."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Three.js for subtle interactive 3D background -->
+  <script defer src="https://unpkg.com/three@0.159.0/build/three.min.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body>
+<canvas id="bg"></canvas>
+<header class="site-header">
+  <a class="brand" href="index.html">
+    <span class="logo-cube" aria-hidden="true"></span>
+    <span>Sounak Ghosh</span>
+  </a>
+  <nav>
+    <a href="index.html#home">Home</a>
+    <a href="index.html#skills">Skills</a>
+    <a href="index.html#projects">Projects</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+</header>
+<main>
+
+<section class="section narrow">
+  <a class="back" href="index.html#projects">← Back to Projects</a>
+  <h1 class="project-title">Divine Waltz</h1>
+  
+  <p class="project-intro">A short mixed-media animated film that explores themes of life's grandeur, self-discovery, and individuation. This poetic work combines traditional filmmaking techniques with cutting-edge animation and motion capture technology to create a deeply personal and visually stunning narrative.</p>
+
+  <div class="image-container">
+    <img src="Images/lab.gif" alt="Divine Waltz Animation" />
+  </div>
+
+  <h2>Project Overview</h2>
+  
+  <p>Divine Waltz is a deeply personal project that began as a poem and evolved into a rich, multi-layered animated film. The work explores universal themes of growth, transformation, and the journey toward self-realization through a unique blend of visual storytelling techniques.</p>
+  
+  <p>The film combines:</p>
+  
+  <ul>
+    <li><strong>Filmmaking</strong> – Traditional narrative structure and cinematography principles adapted for animation.</li>
+    <li><strong>Animation</strong> – Hand-crafted and digital animation techniques that bring the poetic narrative to life.</li>
+    <li><strong>Motion Capture</strong> – Advanced mocap technology to create realistic character movements and emotional expressions.</li>
+  </ul>
+
+  <h2>Creative Process</h2>
+  
+  <p>The project began with a written poem that served as the emotional and thematic foundation. From there, I developed the visual language and animation style that would best serve the narrative's emotional core.</p>
+  
+  <p>Key creative elements include:</p>
+  
+  <ol>
+    <li><strong>Poetic Adaptation</strong> – Translating written poetry into visual metaphors and animated sequences.</li>
+    <li><strong>Mixed Media Approach</strong> – Combining 2D and 3D animation techniques for rich, layered visuals.</li>
+    <li><strong>Emotional Storytelling</strong> – Using motion capture to create authentic, human-like character performances.</li>
+  </ol>
+
+  <h2>Technical Innovation</h2>
+  
+  <p>Divine Waltz pushes the boundaries of what's possible in animated storytelling by seamlessly blending traditional and digital techniques. The project demonstrates how motion capture technology can be used not just for realism, but for emotional authenticity in animated characters.</p>
+  
+  <p>The film represents a convergence of technical skill and artistic vision, showcasing how modern animation tools can serve deeply personal and poetic narratives.</p>
+  
+  <p>For more details on this project, please contact me directly.</p>
+</section>
+
+</main>
+<footer class="site-footer">
+  <p>© <span id="year"></span> Sounak Ghosh — Reality Architect.</p>
+  <div class="socials">
+    <a href="https://www.linkedin.com/in/beingsounak/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/sounakivan" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</footer>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

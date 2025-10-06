@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Victorious Athlete in Augmented Reality — Sounak Ghosh</title>
+  <meta name="description" content="Location-based AR app reveals the long-lost history of one of the Getty Villa's most-prized statues. Portfolio of Sounak Ghosh — Senior Technical Designer."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Three.js for subtle interactive 3D background -->
+  <script defer src="https://unpkg.com/three@0.159.0/build/three.min.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body>
+<canvas id="bg"></canvas>
+<header class="site-header">
+  <a class="brand" href="index.html">
+    <span class="logo-cube" aria-hidden="true"></span>
+    <span>Sounak Ghosh</span>
+  </a>
+  <nav>
+    <a href="index.html#home">Home</a>
+    <a href="index.html#skills">Skills</a>
+    <a href="index.html#projects">Projects</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+</header>
+<main>
+
+<section class="section narrow">
+  <a class="back" href="index.html#projects">← Back to Projects</a>
+  <h1 class="project-title">Victorious Athlete in Augmented Reality</h1>
+  
+  <p class="project-intro">A groundbreaking location-based AR application that brings ancient history to life at the Getty Villa. This immersive experience reveals the long-lost history of one of the museum's most-prized statues through cutting-edge augmented reality technology.</p>
+
+  <div class="image-container">
+    <img src="Images/avatar.gif" alt="Victorious Athlete AR Experience" />
+  </div>
+
+  <h2>Project Overview</h2>
+  
+  <p>Working with the Getty Villa, I developed an AR application that transforms how visitors experience ancient artifacts. The app uses location-based technology to overlay digital content onto the physical statue, revealing its hidden history and cultural significance.</p>
+  
+  <p>The experience combines:</p>
+  
+  <ul>
+    <li><strong>3D Texturing</strong> – High-fidelity digital reconstruction of the statue with historically accurate materials and weathering.</li>
+    <li><strong>Look Development</strong> – Advanced shader work to achieve photorealistic rendering in real-time AR environments.</li>
+    <li><strong>Location-based AR</strong> – Precise spatial tracking and anchoring for seamless integration with the physical museum space.</li>
+  </ul>
+
+  <h2>Technical Implementation</h2>
+  
+  <p>The project required sophisticated 3D modeling and texturing techniques to recreate the statue's original appearance. Using photogrammetry and historical research, I developed a digital twin that shows how the statue would have looked in its original context.</p>
+  
+  <p>Key technical challenges included:</p>
+  
+  <ol>
+    <li><strong>Spatial Tracking</strong> – Ensuring stable AR anchoring in the museum environment with varying lighting conditions.</li>
+    <li><strong>Performance Optimization</strong> – Balancing visual fidelity with real-time rendering requirements on mobile devices.</li>
+    <li><strong>Historical Accuracy</strong> – Collaborating with museum curators to ensure authentic representation of ancient materials and techniques.</li>
+  </ol>
+
+  <h2>Impact & Results</h2>
+  
+  <p>The AR experience has transformed visitor engagement at the Getty Villa, providing an educational tool that makes ancient history accessible and engaging. The project demonstrates the potential of AR technology to enhance cultural heritage experiences and museum education.</p>
+  
+  <p>For more details on this project, please contact me directly.</p>
+</section>
+
+</main>
+<footer class="site-footer">
+  <p>© <span id="year"></span> Sounak Ghosh — Reality Architect.</p>
+  <div class="socials">
+    <a href="https://www.linkedin.com/in/beingsounak/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/sounakivan" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</footer>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
