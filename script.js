@@ -64,9 +64,23 @@ function init() {
 }
 
 let mouseX = 0, mouseY = 0
+let targetRotationX = 0, targetRotationY = 0
 function onMouseMove(e){
   mouseX = (e.clientX / window.innerWidth - 0.5) * 2
   mouseY = (e.clientY / window.innerHeight - 0.5) * 2
+  
+  // Parallax effect on cards
+  const cards = document.querySelectorAll('.card, .hero-content')
+  cards.forEach(card => {
+    const rect = card.getBoundingClientRect()
+    const cardCenterX = rect.left + rect.width / 2
+    const cardCenterY = rect.top + rect.height / 2
+    
+    const distX = (e.clientX - cardCenterX) / window.innerWidth * 20
+    const distY = (e.clientY - cardCenterY) / window.innerHeight * 20
+    
+    card.style.transform = `translate(${distX}px, ${distY}px)`
+  })
 }
 function onResize(){
   camera.aspect = window.innerWidth / window.innerHeight
@@ -76,9 +90,14 @@ function onResize(){
 
 function animate() {
   requestAnimationFrame(animate)
-  points.rotation.y += 0.0007
-  points.rotation.x = mouseY * 0.05
-  points.rotation.y += mouseX * 0.0005
+  
+  // Smooth rotation with easing
+  targetRotationX = mouseY * 0.05
+  targetRotationY = mouseX * 0.0005
+  
+  points.rotation.y += 0.0007 + targetRotationY
+  points.rotation.x += (targetRotationX - points.rotation.x) * 0.05
+  
   renderer.render(scene, camera)
 }
 

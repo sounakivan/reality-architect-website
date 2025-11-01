@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Storyteller — Sounak Ghosh</title>
+  <meta name="description" content="Interactive narrative powered by GPT that adapts to your choices"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="https://unpkg.com/three@0.159.0/build/three.min.js"></script>
+  <script defer src="script.js"></script>
+  <style>
+    .story-container {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 18px;
+      padding: 32px;
+      margin: 24px 0;
+      min-height: 300px;
+    }
+    .story-text {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--fg);
+      margin-bottom: 24px;
+    }
+    .choices {
+      display: grid;
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .choice-btn {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: var(--fg);
+      padding: 16px 20px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: left;
+      font-size: 1rem;
+    }
+    .choice-btn:hover {
+      background: rgba(124,247,212,0.15);
+      border-color: var(--accent);
+      transform: translateX(8px);
+    }
+    .restart-btn {
+      margin-top: 24px;
+    }
+    .api-note {
+      background: rgba(255,200,100,0.1);
+      border-left: 4px solid #ffc864;
+      padding: 16px;
+      border-radius: 8px;
+      margin: 24px 0;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+<canvas id="bg"></canvas>
+<header class="site-header">
+  <a class="brand" href="index.html">
+    <span class="logo-cube" aria-hidden="true"></span>
+    <span>Sounak Ghosh</span>
+  </a>
+  <nav>
+    <a href="index.html#home">Home</a>
+    <a href="index.html#skills">Skills</a>
+    <a href="index.html#projects">Work</a>
+    <a href="index.html#ai-playgrounds">AI Playgrounds</a>
+  </nav>
+</header>
+<main>
+
+<section class="section narrow">
+  <a class="back" href="index.html#ai-playgrounds">← Back to AI Playgrounds</a>
+  <h1 class="project-title">AI Storyteller</h1>
+  
+  <div class="tech-stack" style="margin-bottom:24px;">
+    <span class="tech-badge">JavaScript</span>
+    <span class="tech-badge">GPT API</span>
+    <span class="tech-badge">Interactive Fiction</span>
+    <span class="tech-badge">Prompt Engineering</span>
+  </div>
+  
+  <p class="project-intro">An interactive narrative experiment that uses GPT to create branching stories that adapt to your choices. Each decision shapes the narrative, creating a unique experience every time.</p>
+  
+  <div class="api-note">
+    <strong>📝 What I Explored:</strong> This experiment explores how LLMs can power dynamic storytelling that responds to player agency. By carefully crafting system prompts and maintaining narrative context, I created a story engine that feels responsive and coherent.
+    <br><br>
+    <strong>🎯 What I Learned:</strong> Prompt engineering is crucial for narrative consistency. I learned to balance creative freedom with narrative constraints, and how to maintain character voices and story arcs across multiple LLM calls.
+  </div>
+
+  <div class="story-container">
+    <div id="story-content">
+      <p class="story-text">You wake in a dimly lit chamber. Ancient machinery hums around you, its purpose unknowable. Through a cracked viewport, you see stars—but they're wrong, arranged in constellations you've never seen.</p>
+      <p class="story-text">Your last memory: volunteering for the Deep Space Initiative. The mission was supposed to take 10 years. But the dust on the controls suggests it's been much, much longer.</p>
+      <p class="story-text">Three doors stand before you, each marked with a fading symbol:</p>
+      
+      <div class="choices">
+        <button class="choice-btn" onclick="makeChoice('bridge')">
+          🌟 The Bridge — A glowing blue symbol pulses gently
+        </button>
+        <button class="choice-btn" onclick="makeChoice('cryo')">
+          ❄️ Cryogenics Bay — The symbol is frozen, covered in ice crystals
+        </button>
+        <button class="choice-btn" onclick="makeChoice('garden')">
+          🌱 Bio-Garden — The symbol appears to be... growing?
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <button class="btn ghost restart-btn" onclick="restart()">↻ Restart Story</button>
+
+  <h2>About This Demo</h2>
+  <p>This is a demonstration of narrative branching using client-side JavaScript. In a production version, this would connect to GPT-4 or Claude APIs to generate truly dynamic narratives based on player choices.</p>
+  
+  <h3>Technical Implementation</h3>
+  <ul>
+    <li><strong>Prompt Design:</strong> System prompts establish narrative voice, genre conventions, and pacing</li>
+    <li><strong>Context Management:</strong> Story history is maintained to ensure consistency</li>
+    <li><strong>Choice Generation:</strong> The AI generates meaningful choices that respect player agency</li>
+    <li><strong>Narrative Coherence:</strong> Constraints ensure the story remains compelling and logical</li>
+  </ul>
+</section>
+
+</main>
+<footer class="site-footer">
+  <p>© <span id="year"></span> Sounak Ghosh — Reality Architect.</p>
+  <div class="socials">
+    <a href="https://www.linkedin.com/in/beingsounak/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/sounakivan" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</footer>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  
+  const stories = {
+    bridge: {
+      text: "The bridge is bathed in blue light. Holographic displays flicker with data streams you can barely comprehend. The captain's chair sits empty, facing the viewport. Outside, a nebula swirls—beautiful, but unrecognizable.\n\nA console beeps insistently. You approach and see two critical alerts:\n\nNavigation systems offline. Life support at 30%.",
+      choices: [
+        { id: 'nav', text: '🧭 Investigate Navigation — Try to determine where you are' },
+        { id: 'life', text: '💨 Priority: Life Support — Ensure you can breathe first' },
+        { id: 'log', text: '📜 Access Captain\'s Log — Learn what happened' }
+      ]
+    },
+    cryo: {
+      text: "The cryogenics bay is silent save for the steady drip of melting ice. Most pods are dark, their occupants... you try not to think about it.\n\nBut one pod near the back is glowing. Active. Through the frost, you see a face—someone's still alive in there.\n\nThe control panel offers options:",
+      choices: [
+        { id: 'wake', text: '⚡ Emergency Revival — Wake them immediately' },
+        { id: 'scan', text: '🔬 Run Diagnostics — Check their condition first' },
+        { id: 'leave', text: '🚶 Leave for Now — You need more information' }
+      ]
+    },
+    garden: {
+      text: "You step into the bio-garden and gasp. What should be a controlled agricultural space has become a wild, alien jungle. Plants you don't recognize intertwine with Earth crops, creating something entirely new.\n\nAt the center, a tree that definitely wasn't in the original design glows with bioluminescence. As you approach, patterns in its bark seem to shift—almost like writing.",
+      choices: [
+        { id: 'tree', text: '🌳 Examine the Tree — Try to understand the patterns' },
+        { id: 'earth', text: '🥬 Check Earth Crops — See what's still recognizable' },
+        { id: 'samples', text: '🧪 Collect Samples — Document this for analysis' }
+      ]
+    },
+    nav: {
+      text: "The navigation data is overwhelming. You're not where you should be—you're not even in the same galaxy. The star charts are millions of years out of date.\n\nA faint signal appears on long-range sensors. Another ship? A station? It's too far to tell, but it's the only sign of... anything.",
+      choices: [
+        { id: 'signal', text: '📡 Respond to Signal — Risk revealing your position' },
+        { id: 'analyze', text: '🔭 Passive Scan — Study it from a distance' }
+      ]
+    },
+    life: {
+      text: "Working frantically, you manage to stabilize life support. Oxygen levels begin climbing back to safe levels. But in doing so, you discover something unsettling:\n\nThe air recycling system has been supplemented by the bio-garden. The plants there aren't just decorative—they're keeping you alive. And they're growing faster than any Earth plant should.",
+      choices: [
+        { id: 'investigate_garden', text: '🌿 Investigate Garden — This seems important' },
+        { id: 'other_systems', text: '⚙️ Check Other Systems — What else has changed?' }
+      ]
+    }
+  };
+  
+  function makeChoice(choiceId) {
+    const story = stories[choiceId];
+    if (!story) {
+      document.getElementById('story-content').innerHTML = `
+        <p class="story-text">This path continues deeper into the mystery...</p>
+        <p class="story-text" style="font-style:italic; color:var(--muted);">In a full implementation with GPT-4, the story would continue to branch based on your choices, creating a unique narrative path. The AI would generate new scenarios, characters, and plot developments tailored to your decisions.</p>
+        <button class="btn primary" onclick="restart()" style="margin-top:20px;">↻ Start Over</button>
+      `;
+      return;
+    }
+    
+    document.getElementById('story-content').innerHTML = `
+      <p class="story-text">${story.text}</p>
+      <div class="choices">
+        ${story.choices.map(choice => `
+          <button class="choice-btn" onclick="makeChoice('${choice.id}')">
+            ${choice.text}
+          </button>
+        `).join('')}
+      </div>
+    `;
+  }
+  
+  function restart() {
+    location.reload();
+  }
+</script>
+</body>
+</html>
+
