@@ -314,6 +314,167 @@ tr:last-child td{
   box-shadow:0 8px 24px rgba(255,107,107,0.4);
 }
 
+/* Password Protection Styles */
+.password-gate{
+  background:rgba(124,247,212,0.08);
+  border:2px solid var(--accent);
+  border-radius:18px;
+  padding:40px 24px;
+  margin:48px 0;
+  text-align:center;
+  transition:all 0.3s ease;
+}
+
+.password-gate h3{
+  margin:0 0 12px;
+  color:var(--accent);
+  font-size:1.6rem;
+}
+
+.password-gate p{
+  margin:0 0 20px;
+  color:var(--muted);
+}
+
+.password-gate:hover{
+  background:rgba(124,247,212,0.12);
+  border-color:var(--accent);
+  box-shadow:0 12px 40px rgba(124,247,212,0.15);
+}
+
+.protected-content{
+  display:none;
+  opacity:0;
+  transition:opacity 0.5s ease;
+}
+
+.protected-content.unlocked{
+  display:block;
+  opacity:1;
+  animation:fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn{
+  from{
+    opacity:0;
+    transform:translateY(10px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+.password-modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:1000;
+  background:rgba(8,10,15,0.85);
+  backdrop-filter:blur(10px);
+  align-items:center;
+  justify-content:center;
+  animation:fadeInModal 0.3s ease;
+}
+
+@keyframes fadeInModal{
+  from{
+    opacity:0;
+  }
+  to{
+    opacity:1;
+  }
+}
+
+.password-modal-content{
+  background:rgba(14,18,32,0.95);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:18px;
+  padding:40px;
+  max-width:480px;
+  width:90%;
+  box-shadow:0 20px 60px rgba(0,0,0,0.5);
+  animation:slideUp 0.3s ease;
+}
+
+@keyframes slideUp{
+  from{
+    transform:translateY(20px);
+    opacity:0;
+  }
+  to{
+    transform:translateY(0);
+    opacity:1;
+  }
+}
+
+.password-modal-content h2{
+  margin:0 0 12px;
+  color:var(--accent2);
+  font-size:1.8rem;
+}
+
+.password-modal-content p{
+  margin:0 0 24px;
+  color:var(--muted);
+}
+
+.password-modal-content form{
+  display:grid;
+  gap:16px;
+}
+
+.password-modal-content input{
+  width:100%;
+  padding:14px 16px;
+  border-radius:12px;
+  border:1px solid var(--border);
+  background:rgba(10,14,24,0.8);
+  color:var(--fg);
+  font-size:1rem;
+  transition:border-color 0.2s ease;
+}
+
+.password-modal-content input:focus{
+  outline:none;
+  border-color:var(--accent);
+  box-shadow:0 0 0 2px rgba(124,247,212,0.2);
+}
+
+.password-error{
+  color:#ff6b6b;
+  font-size:0.9rem;
+  min-height:20px;
+  transition:opacity 0.2s ease;
+}
+
+.modal-buttons{
+  display:flex;
+  gap:12px;
+  justify-content:stretch;
+}
+
+.modal-buttons .btn{
+  flex:1;
+  text-align:center;
+  cursor:pointer;
+  font-size:1rem;
+}
+
+.modal-buttons .btn.primary:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 24px rgba(124,247,212,0.3);
+}
+
+.modal-buttons .btn.ghost{
+  border-color:var(--border);
+}
+
+.modal-buttons .btn.ghost:hover{
+  background:rgba(255,255,255,0.05);
+  border-color:var(--muted);
+}
+
 /* Responsive tweaks */
 @media (max-width:720px){
   .site-header nav a{margin-left:12px}
