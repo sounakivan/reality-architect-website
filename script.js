@@ -68,19 +68,6 @@ let targetRotationX = 0, targetRotationY = 0
 function onMouseMove(e){
   mouseX = (e.clientX / window.innerWidth - 0.5) * 2
   mouseY = (e.clientY / window.innerHeight - 0.5) * 2
-  
-  // Parallax effect on cards
-  const cards = document.querySelectorAll('.card, .hero-content')
-  cards.forEach(card => {
-    const rect = card.getBoundingClientRect()
-    const cardCenterX = rect.left + rect.width / 2
-    const cardCenterY = rect.top + rect.height / 2
-    
-    const distX = (e.clientX - cardCenterX) / window.innerWidth * 20
-    const distY = (e.clientY - cardCenterY) / window.innerHeight * 20
-    
-    card.style.transform = `translate(${distX}px, ${distY}px)`
-  })
 }
 function onResize(){
   camera.aspect = window.innerWidth / window.innerHeight
@@ -101,25 +88,8 @@ function animate() {
   renderer.render(scene, camera)
 }
 
-// Simple tilt hover effect for cards
-function applyTilt(){
-  const nodes = document.querySelectorAll('.tilt')
-  nodes.forEach(node => {
-    node.addEventListener('pointermove', e => {
-      const rect = node.getBoundingClientRect()
-      const x = e.clientX - rect.left
-      const y = e.clientY - rect.top
-      const rx = ((y / rect.height) - 0.5) * -6
-      const ry = ((x / rect.width) - 0.5) * 6
-      node.style.transform = `translateY(-2px) rotateX(${rx}deg) rotateY(${ry}deg)`
-    })
-    node.addEventListener('pointerleave', () => {
-      node.style.transform = ''
-    })
-  })
-}
+// Tilt hover effect removed - cursor parallax disabled
 
 document.addEventListener('DOMContentLoaded', () => {
   init()
-  applyTilt()
 })

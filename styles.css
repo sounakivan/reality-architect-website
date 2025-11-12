@@ -37,7 +37,7 @@ nav a{margin-left:18px; color:var(--muted); text-decoration:none}
 nav a:hover{color:var(--fg)}
 
 .hero{min-height:78vh; display:grid; place-items:center; padding:96px 24px 48px}
-.hero-content{max-width:1000px; text-align:center; transition:transform 0.1s ease-out}
+.hero-content{max-width:1000px; text-align:center}
 .hero-avatar{width:160px; height:160px; border-radius:0; object-fit:contain; box-shadow:0 8px 32px rgba(0,0,0,0.3); margin:0 auto 16px; display:block; border:none}
 h1{font-family:"Space Grotesk",Inter,sans-serif; font-size:clamp(38px,6vw,74px); line-height:1.05; margin:0 0 16px}
 h1 small{font-weight:400; color:#B2A3FF}
@@ -58,7 +58,7 @@ h2{font-family:"Space Grotesk"; font-size:clamp(22px,2.8vw,32px); margin:0 0 24p
   border:1px solid rgba(255,255,255,0.1);
   border-radius:18px; padding:20px;
   box-shadow:0 8px 32px rgba(0,0,0,0.3);
-  transition:all 0.3s ease, transform 0.1s ease-out;
+  transition:all 0.3s ease;
 }
 .skill-icon{font-size:2.5rem; margin-bottom:12px; display:block}
 .card h3{margin:0 0 8px}
@@ -219,9 +219,8 @@ tr:last-child td{
 .site-footer a{color:var(--muted); text-decoration:none}
 .site-footer a:hover{color:var(--fg)}
 
-/* Subtle 3D tilt */
-.tilt{transform-style:preserve-3d; perspective:800px}
-.tilt:hover{transform:translateY(-2px) rotateX(1deg) rotateY(-1deg); background:rgba(255,255,255,0.08); box-shadow:0 12px 40px rgba(0,0,0,0.4)}
+/* Subtle hover effect (tilt parallax removed) */
+.tilt:hover{transform:translateY(-2px); background:rgba(255,255,255,0.08); box-shadow:0 12px 40px rgba(0,0,0,0.4)}
 
 /* Project card specific styles */
 .project-card-image{
