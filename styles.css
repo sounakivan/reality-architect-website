@@ -62,19 +62,7 @@ h3{padding:8px 0; margin:16px 0 8px}
   box-shadow:0 8px 32px rgba(0,0,0,0.3);
   transition:all 0.3s ease;
 }
-.skill-icon{
-  font-size:2.5rem; 
-  margin-bottom:12px; 
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  width:80px;
-  height:80px;
-  background:rgba(255,255,255,0.8);
-  backdrop-filter:blur(10px);
-  border-radius:16px;
-  box-shadow:0 4px 16px rgba(255,255,255,0.2);
-}
+.skill-icon{font-size:2.5rem; margin-bottom:12px; display:block}
 .card h3{margin:0 0 8px}
 .project-card-image + h3{
   color:var(--fg);
@@ -82,8 +70,14 @@ h3{padding:8px 0; margin:16px 0 8px}
   text-decoration:none;
 }
 .card p{margin:0; color:var(--muted)}
+#skills .card{
+  background:rgba(255,255,255,0.9);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,0.3);
+}
 #skills .card h3{color:#1a1a1a}
-#skills .card p{color:#333333}
+#skills .card p{color:#2a2a2a}
+#skills .skill-icon{color:#1a1a1a}
 .card.link{transition:all 0.3s ease}
 .card.link:hover{transform:translateY(-3px); border-color:var(--accent); background:rgba(255,255,255,0.08); box-shadow:0 12px 40px rgba(0,0,0,0.4)}
 
