@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Automated YouTube Content Pipeline — Sounak Ghosh</title>
+  <meta name="description" content="Portfolio of Sounak Ghosh — Senior Technical Designer. Reality Architect theme with XR, VR, Systems, AI, and more."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Three.js for subtle interactive 3D background -->
+  <script defer src="https://unpkg.com/three@0.159.0/build/three.min.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body>
+<canvas id="bg"></canvas>
+<header class="site-header">
+  <a class="brand" href="index.html">
+    <span class="logo-cube" aria-hidden="true"></span>
+    <span>Sounak Ghosh</span>
+  </a>
+  <nav>
+    <a href="index.html#home">Home</a>
+    <a href="index.html#skills">Skills</a>
+    <a href="index.html#projects">Work</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="resume.pdf" target="_blank">Resume</a>
+  </nav>
+</header>
+<main>
+
+<section class="section narrow">
+  <a class="back" href="index.html#ai-playground">← Back to AI Playground</a>
+  <h1 class="project-title">Automated YouTube Content Pipeline</h1>
+  
+  <div class="tech-stack" style="margin-bottom:24px;">
+    <span class="tech-badge">n8n</span>
+    <span class="tech-badge">ElevenLabs</span>
+    <span class="tech-badge">Airtable</span>
+    <span class="tech-badge">GPT-4</span>
+    <span class="tech-badge">Google Drive</span>
+    <span class="tech-badge">Trello</span>
+  </div>
+  
+  <div class="image-container">
+    <img src="Images/youtube automation n8n.png" alt="YouTube Automation n8n Workflow" />
+  </div>
+
+  <h2>Overview</h2>
+  
+  <p>This system (built in n8n) automates the journey from "video idea" to "ready-to-edit assets" using AI agents and project management tools, with a critical human checkpoint.</p>
+
+  <h2>Workflow Steps</h2>
+
+  <h3>1. Initiation & Ideation</h3>
+  
+  <p><strong>Trigger:</strong> The workflow starts on a set schedule.</p>
+  
+  <p><strong>Action:</strong> It searches an Airtable Database to retrieve a specific video concept/idea and supporting details.</p>
+
+  <h3>2. AI Content Generation</h3>
+  
+  <p><strong>Scriptwriting:</strong> An AI Agent (powered by GPT-4.1) takes the idea and generates a full video script.</p>
+  
+  <p><strong>Metadata:</strong> The agent simultaneously writes the video description and formats the output.</p>
+
+  <h3>3. Organization & Documentation</h3>
+  
+  <p><strong>Google Drive:</strong> The system automatically creates a new Google Doc, pastes the generated script, and moves it to a designated "Script Folder."</p>
+  
+  <p><strong>Project Management:</strong> It creates a new Trello card for the project and attaches the script file for easy access.</p>
+
+  <h3>4. Human-in-the-Loop</h3>
+  
+  <p><strong>The Pause:</strong> The automation halts for a manual review.</p>
+  
+  <p><strong>Action:</strong> A human receives a message to proofread the script. The workflow does not proceed until this step is approved.</p>
+
+  <h3>5. Audio Production & Finalization</h3>
+  
+  <p><strong>Voiceover Generation:</strong> Once approved, the system pulls the script and sends it to ElevenLabs api for voice generation.</p>
+  
+  <p><strong>Asset Consolidation:</strong> The audio file is uploaded to Google Drive and attached to the existing Trello card.</p>
+
+  <h3>6. Completion</h3>
+  
+  <p>The system updates the original Database record to mark the phase as complete. This helps the project manager know to send the materials for this video idea to the video editor.</p>
+
+  <h2>See It In Action</h2>
+  
+  <p>This automation workflow is actively used to produce content for the Mr. Mustache Explainer YouTube channel:</p>
+  
+  <div style="margin:24px 0;">
+    <a href="https://www.youtube.com/@Mr.MustacheExplainer/videos" target="_blank" rel="noopener" class="btn primary">
+      Visit YouTube Channel →
+    </a>
+  </div>
+
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <p>© <span id="year"></span> Sounak Ghosh — Reality Architect.</p>
+  <div class="socials">
+    <a href="https://www.linkedin.com/in/beingsounak/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/sounakivan" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</footer>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
+
