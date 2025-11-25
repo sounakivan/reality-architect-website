@@ -51,41 +51,48 @@
   
   <p>This system (built in n8n) automates the journey from "video idea" to "ready-to-edit assets" using AI agents and project management tools, with a critical human checkpoint.</p>
 
-  <h2>Workflow Steps</h2>
+  <h2>Process Flow Breakdown</h2>
 
   <h3>1. Initiation & Ideation</h3>
   
-  <p><strong>Trigger:</strong> The workflow starts on a set schedule.</p>
-  
-  <p><strong>Action:</strong> It searches an Airtable Database to retrieve a specific video concept/idea and supporting details.</p>
+  <ul>
+    <li><strong>Trigger:</strong> The workflow starts on a set schedule.</li>
+    <li><strong>Action:</strong> It searches an Airtable Database to retrieve a specific video concept/idea and supporting details.</li>
+  </ul>
 
   <h3>2. AI Content Generation</h3>
   
-  <p><strong>Scriptwriting:</strong> An AI Agent (powered by GPT-4.1) takes the idea and generates a full video script.</p>
-  
-  <p><strong>Metadata:</strong> The agent simultaneously writes the video description and formats the output.</p>
+  <ul>
+    <li><strong>Scriptwriting:</strong> An AI Agent (powered by GPT-4.1) takes the idea and generates a full video script.</li>
+    <li><strong>Metadata:</strong> The agent simultaneously writes the video description and formats the output.</li>
+  </ul>
 
   <h3>3. Organization & Documentation</h3>
   
-  <p><strong>Google Drive:</strong> The system automatically creates a new Google Doc, pastes the generated script, and moves it to a designated "Script Folder."</p>
-  
-  <p><strong>Project Management:</strong> It creates a new Trello card for the project and attaches the script file for easy access.</p>
+  <ul>
+    <li><strong>Google Drive:</strong> The system automatically creates a new Google Doc, pastes the generated script, and moves it to a designated "Script Folder."</li>
+    <li><strong>Project Management:</strong> It creates a new Trello card for the project and attaches the script file for easy access.</li>
+  </ul>
 
   <h3>4. Human-in-the-Loop</h3>
   
-  <p><strong>The Pause:</strong> The automation halts for a manual review.</p>
-  
-  <p><strong>Action:</strong> A human receives a message to proofread the script. The workflow does not proceed until this step is approved.</p>
+  <ul>
+    <li><strong>The Pause:</strong> The automation halts for a manual review.</li>
+    <li><strong>Action:</strong> A human receives a message to proofread the script. The workflow does not proceed until this step is approved.</li>
+  </ul>
 
   <h3>5. Audio Production & Finalization</h3>
   
-  <p><strong>Voiceover Generation:</strong> Once approved, the system pulls the script and sends it to ElevenLabs api for voice generation.</p>
-  
-  <p><strong>Asset Consolidation:</strong> The audio file is uploaded to Google Drive and attached to the existing Trello card.</p>
+  <ul>
+    <li><strong>Voiceover Generation:</strong> Once approved, the system pulls the script and sends it to ElevenLabs api for voice generation.</li>
+    <li><strong>Asset Consolidation:</strong> The audio file is uploaded to Google Drive and attached to the existing Trello card.</li>
+  </ul>
 
   <h3>6. Completion</h3>
   
-  <p>The system updates the original Database record to mark the phase as complete. This helps the project manager know to send the materials for this video idea to the video editor.</p>
+  <ul>
+    <li>The system updates the original Database record to mark the phase as complete. This helps the project manager know to send the materials for this video idea to the video editor.</li>
+  </ul>
 
   <h2>See It In Action</h2>
   
