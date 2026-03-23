@@ -27,6 +27,8 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
         tags={project.techStack}
         challenge={project.challenge}
         impact={project.impact}
+        videoUrl={project.videoUrl}
+        caseStudyMeta={project.caseStudyMeta}
         backHref="/projects"
         backLabel="Back to Vault"
       >

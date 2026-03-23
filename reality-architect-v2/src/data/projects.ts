@@ -8,8 +8,10 @@ export interface Project {
   description: string;
   techStack: string[];
   image?: string;
+  videoUrl?: string;
   challenge?: string;
   impact?: string;
+  caseStudyMeta?: { role: string; company: string; companyUrl: string; timeline: string };
   content?: { title: string; body: string; list?: string[]; images?: string[]; videoUrl?: string; }[];
 }
 
@@ -66,6 +68,13 @@ export const projects: Project[] = [
     image: "/projects/drill.gif",
     challenge: "Fragmented UI/UX patterns across dozens of VR simulations led to inconsistent user experiences and bloated production timelines as designers rebuilt basic interaction models from scratch.",
     impact: "Established a unified spatial design system that improved production efficiency by 40% and drastically elevated the baseline quality and accessibility of all new VR content.",
+    caseStudyMeta: {
+      role: "Senior Technical Designer",
+      company: "Transfr",
+      companyUrl: "https://transfrinc.com/",
+      timeline: "8 months"
+    },
+    videoUrl: "https://www.youtube.com/watch?v=IeXSXgrtz3c",
     content: [
       {
         title: "The Fragmentation Problem",
@@ -89,8 +98,7 @@ export const projects: Project[] = [
           "saved massive amounts of redundant production time,",
           "drastically accelerated our delivery timelines, and",
           "established a consistently premium benchmark for design quality across the platform."
-        ],
-        videoUrl: "https://www.youtube.com/watch?v=IeXSXgrtz3c"
+        ]
       }
     ]
   },

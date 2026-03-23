@@ -7,6 +7,8 @@ export default function CaseStudyLayout({
   tags,
   challenge,
   impact,
+  videoUrl,
+  caseStudyMeta,
   backHref = "/",
   backLabel = "Back to Base",
   children,
@@ -16,8 +18,10 @@ export default function CaseStudyLayout({
   tags: string[];
   challenge: string;
   impact: string;
+  videoUrl?: string;
   backHref?: string;
   backLabel?: string;
+  caseStudyMeta?: { role: string; company: string; companyUrl: string; timeline: string };
   children: React.ReactNode;
 }) {
   return (
@@ -37,6 +41,29 @@ export default function CaseStudyLayout({
         
         <h1 className="text-4xl md:text-5xl font-sans font-bold text-white tracking-tight">{title}</h1>
         <p className="text-xl text-[#888] leading-relaxed max-w-2xl">{subtitle}</p>
+
+        {caseStudyMeta && (
+          <div className="mt-12 pt-8 border-t border-[#222] grid grid-cols-1 md:grid-cols-3 gap-6 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-100 fill-mode-both">
+            <div>
+              <h4 className="text-[#555] text-xs uppercase tracking-widest font-mono mb-2">Role</h4>
+              <p className="text-white text-sm font-medium">{caseStudyMeta.role}</p>
+            </div>
+            <div>
+              <h4 className="text-[#555] text-xs uppercase tracking-widest font-mono mb-2">Company</h4>
+              {caseStudyMeta.companyUrl ? (
+                <a href={caseStudyMeta.companyUrl} target="_blank" rel="noopener noreferrer" className="text-accent hover:text-white transition-colors text-sm font-medium inline-flex items-center gap-1">
+                  {caseStudyMeta.company} <span className="text-[10px] uppercase">↗</span>
+                </a>
+              ) : (
+                <p className="text-white text-sm font-medium">{caseStudyMeta.company}</p>
+              )}
+            </div>
+            <div>
+              <h4 className="text-[#555] text-xs uppercase tracking-widest font-mono mb-2">Timeline</h4>
+              <p className="text-white text-sm font-medium">{caseStudyMeta.timeline}</p>
+            </div>
+          </div>
+        )}
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-150 fill-mode-both">
@@ -49,6 +76,18 @@ export default function CaseStudyLayout({
           <p className="text-white leading-relaxed font-medium">{impact}</p>
         </div>
       </div>
+
+      {videoUrl && (
+        <div className="mb-16 relative w-full aspect-video rounded-lg overflow-hidden border border-[#222] bg-[#0a0a0a] shadow-[0_0_30px_rgba(0,229,255,0.1)] animate-in fade-in slide-in-from-bottom-8 duration-700 delay-200 fill-mode-both">
+          <iframe
+            src={videoUrl.replace("watch?v=", "embed/")}
+            className="w-full h-full absolute top-0 left-0"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        </div>
+      )}
 
       <article className="prose prose-invert prose-p:text-[#aaa] prose-headings:text-white prose-a:text-accent prose-strong:text-white max-w-none animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300 fill-mode-both">
         {children}
