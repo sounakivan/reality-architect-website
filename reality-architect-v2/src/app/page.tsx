@@ -31,8 +31,8 @@ export default function Home() {
         </h1>
         
         <p className="max-w-2xl text-lg md:text-xl text-[#888] font-mono leading-relaxed">
-          Designing interactive worlds where imagination meets intelligence. 
-          Orchestrating agentic workflows and immersive systems for the future of human-computer interaction.
+          Hi I'm Sounak. I design interactive worlds where imagination meets intelligence. 
+          I help companies, productions and clients orchestrate agentic workflows and immersive systems using human-centric design.
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 pt-8">

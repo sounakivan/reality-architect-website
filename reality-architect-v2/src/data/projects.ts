@@ -17,7 +17,7 @@ export const projects: Project[] = [
   {
     slug: "inner-light",
     categorySlug: "neuro-tech",
-    title: "Inner Light: Neuro-tech BCI",
+    title: "Inner Light (BCI + VR Neurotech)",
     category: "Neuro-tech",
     description: "Real-time brain-computer interface (BCI) translation and VR biofeedback architecture.",
     techStack: ["BCI", "Unity", "C#", "Signal Processing"],
@@ -59,7 +59,7 @@ export const projects: Project[] = [
   {
     slug: "modular-xr-system",
     categorySlug: "xr-design",
-    title: "Modular XR Design System",
+    title: "Tool-based XR Interaction System",
     category: "XR Design",
     description: "Modular templates and XR design system for improved production efficiency and design quality.",
     techStack: ["Design Systems", "Figma", "Unity", "UX/UI"],
@@ -80,7 +80,7 @@ export const projects: Project[] = [
   {
     slug: "e2engine",
     categorySlug: "agentic-workflows",
-    title: "E2Engine: AI Workflow Automation",
+    title: "E2Engine: Automated VR Sim Creation",
     category: "E2Engine",
     description: "AI Workflow Automation for instant sim content generation.",
     techStack: ["AI Automation", "Python", "LLMs", "Toolchain"],
