@@ -1,6 +1,6 @@
 import { projects } from "@/data/projects";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, CheckSquare } from "lucide-react";
 import { notFound } from "next/navigation";
 import CaseStudyLayout from "@/components/CaseStudyLayout";
 
@@ -31,9 +31,46 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
         backLabel="Back to Vault"
       >
         {project.content?.map((section, idx) => (
-          <div key={idx} className="mb-8">
-            <h2>{section.title}</h2>
-            <p>{section.body}</p>
+          <div key={idx} className="mb-12">
+            <h2 className="text-2xl font-bold text-white mb-4 tracking-tight">{section.title}</h2>
+            <p className="text-[#aaa] leading-relaxed font-mono">{section.body}</p>
+            
+            {section.list && section.list.length > 0 && (
+              <ul className="mt-4 space-y-3 font-mono text-[#aaa]">
+                {section.list.map((item, i) => (
+                  <li key={i} className="flex items-start gap-4">
+                    <CheckSquare className="text-accent mt-1 shrink-0" size={16} />
+                    <span className="leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+            
+            {section.images && section.images.length > 0 && (
+              <div className={`mt-8 w-11/12 mx-auto grid gap-6 ${section.images.length > 1 ? 'grid-cols-1 md:grid-cols-2' : 'grid-cols-1'}`}>
+                {section.images.map((img, i) => (
+                  <div key={i} className="relative flex justify-start items-center">
+                    <img 
+                      src={img} 
+                      alt={`${section.title} visual ${i+1}`} 
+                      className="max-w-full h-auto object-contain rounded-md border border-[#222] bg-[#0a0a0a] opacity-90 shadow-md hover:opacity-100 transition-opacity" 
+                    />
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {section.videoUrl && (
+              <div className="mt-8 relative w-full aspect-video rounded-lg overflow-hidden border border-[#222] bg-[#0a0a0a] shadow-[0_0_30px_rgba(0,229,255,0.1)]">
+                <iframe
+                  src={section.videoUrl.replace("watch?v=", "embed/")}
+                  className="w-full h-full absolute top-0 left-0"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            )}
           </div>
         ))}
       </CaseStudyLayout>

@@ -10,7 +10,7 @@ export interface Project {
   image?: string;
   challenge?: string;
   impact?: string;
-  content?: { title: string; body: string }[];
+  content?: { title: string; body: string; list?: string[]; images?: string[]; videoUrl?: string; }[];
 }
 
 export const projects: Project[] = [
@@ -68,12 +68,29 @@ export const projects: Project[] = [
     impact: "Established a unified spatial design system that improved production efficiency by 40% and drastically elevated the baseline quality and accessibility of all new VR content.",
     content: [
       {
-        title: "Standardizing Spatial Computing",
-        body: "A design system for 2D screens is complex; a design system for 3D spatial computing requires accounting for depth, ergonomics, physical fatigue, and tracking volumes. I led the development of a modular architecture that bridged Figma components directly to Unity prefabs."
+        title: "The Fragmentation Problem",
+        body: "When scaling VR production, fragmented UI/UX patterns across dozens of simulations inevitably led to inconsistent design quality. Our biggest hurdle was a bloated production pipeline where technical artists and designers were forced to rebuild basic assets and interaction models entirely from scratch for every new training module. Recognizing this inefficiency, I proposed a comprehensive XR design system—a modular architecture for interaction design built directly on top of the proprietary Transfr SDK.",
+        images: ["/projects/xr-architecture.png"]
       },
       {
-        title: "Component-Driven Architecture",
-        body: "The system included standardized interaction paradigms (grab points, snap zones, toolbelt mechanics) and a unified UI library optimized for VR rendering (distance-based scaling, high-contrast legibility). By componentizing these elements, technical artists and designers could assemble complex training scenarios simply by dragging and dropping validated prefabs."
+        title: "Aligning SDK Tools with Interaction Design",
+        body: "This proposal led to my direct involvement in the SDK's tools development. The goal was to bridge the gap between concept and code by ensuring the SDK natively supported the strict, consistent requirements of the new XR design system. By standardizing physical hand interactions, UI scaling, and spatial ergonomics, we created an ecosystem where building a complex interaction felt like snapping together building blocks rather than coding bespoke solutions.",
+        images: ["/projects/nodeflow-drill.png"]
+      },
+      {
+        title: "Node Flow & Baked-in Logic",
+        body: "A major breakthrough in this architecture was my involvement with Node Flow—a visual, node-based authoring tool for VR simulation building. I helped engineer reusable, tool-based interaction templates for standard VR objects like drills, wrenches, spray cans, scissors, wire cutters, and more. Rather than just being static 3D models, these grabbable objects came pre-configured with baked-in interaction logic, spatial audio effects, haptic feedback profiles, and UX affordances.",
+        images: ["/projects/nodeflow-logic.png"]
+      },
+      {
+        title: "Scaling Production Value",
+        body: "The result was transformational. With all haptics, SFXs and UX logic baked directly into a standardized template, these interactable assets could be instantly reused across an entire VR training module - often comprising 10-12 distinct simulations. This unified approach:",
+        list: [
+          "saved massive amounts of redundant production time,",
+          "drastically accelerated our delivery timelines, and",
+          "established a consistently premium benchmark for design quality across the platform."
+        ],
+        videoUrl: "https://www.youtube.com/watch?v=IeXSXgrtz3c"
       }
     ]
   },
