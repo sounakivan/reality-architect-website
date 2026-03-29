@@ -8,46 +8,101 @@ export default function Protocol() {
         <ArrowLeft size={16} className="mr-2" /> End Session
       </Link>
       
-      <div className="space-y-12 animate-in fade-in slide-in-from-bottom-8 duration-700">
-        <header className="border-b border-[#222] pb-8">
+      <div className="space-y-16 animate-in fade-in slide-in-from-bottom-8 duration-700">
+        
+        {/* Intro */}
+        <section className="space-y-6">
           <div className="flex items-center gap-3 mb-4 text-accent">
             <Terminal size={24} />
-            <h1 className="text-2xl uppercase tracking-widest font-bold">Protocol // Manifesto</h1>
+            <h1 className="text-2xl uppercase tracking-widest font-bold">The Strategic Creative Technologist</h1>
           </div>
-          <p className="text-[#888] text-sm leading-relaxed">
-            Standard operating procedures for creative technology, system design, and AI orchestration.
+          <p className="text-xl text-white font-medium leading-relaxed">
+            Bridging the gap between the human heart and the machine.
           </p>
-        </header>
-
-        <section className="space-y-4">
-          <h2 className="text-white text-lg uppercase tracking-wider">01. Human-in-the-Loop is Non-Negotiable</h2>
           <p className="text-[#aaa] text-sm leading-relaxed border-l-2 border-[#333] pl-4 py-1">
-            We do not automate indiscriminately. Systems should orchestrate the mundane to elevate human creativity. The final gatekeeper must always be human consciousness, reserving cognitive friction for decisions that actually matter.
+            I am a Creative Technologist and AI Strategist with over a decade of experience navigating the intersection of XR, Generative AI, and Human-Centric Design. My work is grounded in the belief that technology is at its best when it serves as a bridge—connecting complex engineering to intuitive design, and business objectives to meaningful human experiences.
           </p>
         </section>
 
-        <section className="space-y-4">
-          <h2 className="text-white text-lg uppercase tracking-wider">02. Spatial Depth Over Flat Surfaces</h2>
-          <p className="text-[#aaa] text-sm leading-relaxed border-l-2 border-[#333] pl-4 py-1">
-            Interfaces should recognize the physical reality of the user. Depth, motion, and interaction metaphors are not just embellishments; they are cognitive scaffolding. We design systems that understand presence.
-          </p>
+        {/* Operating Protocol */}
+        <section className="space-y-8 pt-8 border-t border-[#222]">
+          <header>
+            <h2 className="text-xl uppercase tracking-wider text-accent mb-2">My Personal Operating Protocol</h2>
+            <p className="text-[#888] text-sm leading-relaxed">
+              How we will work together to build the future.
+            </p>
+          </header>
+
+          <div className="space-y-8">
+            <div className="space-y-2">
+              <h3 className="text-white text-base uppercase tracking-wider flex items-center gap-2">
+                <span className="text-[#666] text-sm">01.</span> The Bridge: Design, Engineering, &amp; Business
+              </h3>
+              <p className="text-[#aaa] text-sm leading-relaxed border-l-2 border-[#333] pl-4 py-1">
+                I don&apos;t work in a silo. I thrive at the &quot;seams&quot; of an organization—facilitating the dialogue between SMEs, Engineers, and Designers. I translate &quot;abstract vision&quot; into &quot;functional prototype&quot; and &quot;business KPI&quot; into &quot;technical architecture&quot;.
+              </p>
+            </div>
+
+            <div className="space-y-2">
+              <h3 className="text-white text-base uppercase tracking-wider flex items-center gap-2">
+                <span className="text-[#666] text-sm">02.</span> AI Strategy over Hype
+              </h3>
+              <p className="text-[#aaa] text-sm leading-relaxed border-l-2 border-[#333] pl-4 py-1">
+                I treat AI as a Strategic Force Multiplier, not a buzzword. My approach involves building AI workflows and processes that solve specific bottlenecks, such as scaling 3D asset production or automating complex simulation logic. I help you identify where AI can provide the most ROI without sacrificing the creative soul of the project.
+              </p>
+            </div>
+
+            <div className="space-y-2">
+              <h3 className="text-white text-base uppercase tracking-wider flex items-center gap-2">
+                <span className="text-[#666] text-sm">03.</span> Rapid, Iterative Prototyping
+              </h3>
+              <p className="text-[#aaa] text-sm leading-relaxed border-l-2 border-[#333] pl-4 py-1">
+                Innovation is a series of experiments. I use Unity (C#), Unreal Engine, 3D softwares, Figma, Three.js, Node.js and other tools (including AI tools) to build &quot;proofs-of-concept&quot; fast. We test early, fail safely, and refine until the interaction feels seamless.
+              </p>
+            </div>
+
+            <div className="space-y-2">
+              <h3 className="text-white text-base uppercase tracking-wider flex items-center gap-2">
+                <span className="text-[#666] text-sm">04.</span> Radical Empathy &amp; Human Performance
+              </h3>
+              <p className="text-[#aaa] text-sm leading-relaxed border-l-2 border-[#333] pl-4 py-1">
+                Whether designing educational simulations for middle schoolers or enterprise-level VR training, I lead with User Research and Feedback. My work on projects like Inner Light (leveraging EEG data in real-time) demonstrates my commitment to pushing the boundaries of what a &quot;user interface&quot; can be.
+              </p>
+            </div>
+          </div>
         </section>
 
-        <section className="space-y-4">
-          <h2 className="text-white text-lg uppercase tracking-wider">03. Composable Over Bespoke</h2>
-          <p className="text-[#aaa] text-sm leading-relaxed border-l-2 border-[#333] pl-4 py-1">
-            Build modules, not monuments. Every interaction pattern, data pipeline, and AI prompt must be architected so it can be broken down, reused, and scaled across entirely new verticals without rebuilding from scratch.
-          </p>
+        {/* Core Values */}
+        <section className="space-y-8 pt-8 border-t border-[#222]">
+          <header>
+            <h2 className="text-xl uppercase tracking-wider text-accent mb-6">Core Values</h2>
+          </header>
+
+          <div className="space-y-6">
+            <div className="space-y-2">
+              <h3 className="text-white text-sm uppercase tracking-wider">The Human Heart</h3>
+              <p className="text-[#aaa] text-sm leading-relaxed border-l-2 border-[#333] pl-4 py-1">
+                I am deeply interested in what makes us human—love, poetry, and music—and how these elements can be preserved in digital spaces.
+              </p>
+            </div>
+
+            <div className="space-y-2">
+              <h3 className="text-white text-sm uppercase tracking-wider">Integrity in Innovation</h3>
+              <p className="text-[#aaa] text-sm leading-relaxed border-l-2 border-[#333] pl-4 py-1">
+                I value environments that prioritize creative freedom and rigorous technical standards over easy shortcuts.
+              </p>
+            </div>
+
+            <div className="space-y-2">
+              <h3 className="text-white text-sm uppercase tracking-wider flex items-center gap-2">The &quot;Generalist&quot; Advantage</h3>
+              <p className="text-[#aaa] text-sm leading-relaxed border-l-2 border-[#333] pl-4 py-1">
+                From 3D Asset Creation to AI Automation, I maintain a high-level mastery over the full production pipeline to ensure nothing is lost in translation.
+              </p>
+            </div>
+          </div>
         </section>
 
-        <section className="space-y-4">
-          <h2 className="text-white text-lg uppercase tracking-wider">04. The Medium is the Machine</h2>
-          <p className="text-[#aaa] text-sm leading-relaxed border-l-2 border-[#333] pl-4 py-1">
-            Understanding the lower levels—how shaders compile, how LLMs calculate token probabilities, how EEG signals map to frequencies—is critical to orchestrating the macro experience. We do not fear the command line.
-          </p>
-        </section>
-
-        <section className="space-y-4 pt-12 mt-12 border-t border-[#222]">
+        <section className="space-y-4 pt-12 border-t border-[#222]">
           <h2 className="text-accent text-lg uppercase tracking-wider">Ready to connect?</h2>
           <p className="text-[#888] text-sm leading-relaxed mb-6">
             If these principles align with your next project or architectural challenge, establish a direct link.
@@ -57,8 +112,8 @@ export default function Protocol() {
           </Link>
         </section>
 
-        <footer className="pt-12 mt-12 border-t border-[#222] text-[#666] text-xs">
-          [END OF DOCUMENT] // REVISION: 2.0.4
+        <footer className="pt-8 text-[#666] text-xs">
+          [END OF DOCUMENT] // REVISION: 2.1.0
         </footer>
       </div>
     </div>
