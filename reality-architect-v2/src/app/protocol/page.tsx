@@ -7,9 +7,9 @@ export default function Protocol() {
       <Link href="/" className="inline-flex items-center text-sm text-[#888] hover:text-white mb-16 transition-colors">
         <ArrowLeft size={16} className="mr-2" /> End Session
       </Link>
-      
+
       <div className="space-y-16 animate-in fade-in slide-in-from-bottom-8 duration-700">
-        
+
         {/* Intro */}
         <section className="space-y-6">
           <div className="flex items-center gap-3 mb-4 text-accent">
@@ -20,7 +20,7 @@ export default function Protocol() {
             Bridging the gap between the human heart and the machine.
           </p>
           <p className="text-[#aaa] text-sm leading-relaxed border-l-2 border-[#333] pl-4 py-1">
-            I am a Creative Technologist and AI Strategist with over a decade of experience navigating the intersection of XR, Generative AI, and Human-Centric Design. My work is grounded in the belief that technology is at its best when it serves as a bridge—connecting complex engineering to intuitive design, and business objectives to meaningful human experiences.
+            I am a Creative Technologist and AI Strategist with 8+ years of experience navigating the intersection of XR, Generative AI, and Human-Centric Design. My work is grounded in the belief that technology is at its best when it serves as a bridge—connecting complex engineering to intuitive design, and business objectives to meaningful human experiences.
           </p>
         </section>
 
