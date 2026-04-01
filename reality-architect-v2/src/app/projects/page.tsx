@@ -16,7 +16,7 @@ export default function ProjectsGallery() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-150 fill-mode-both">
-        {projects.map((project) => (
+        {projects.filter((p) => !p.hidden).map((project) => (
           <Link key={project.slug} href={`/projects/${project.slug}`} className="group block p-6 border border-[#222] bg-black/40 rounded-lg hover:border-accent/40 transition-colors">
             <div className="flex justify-between items-start mb-4">
               <span className="text-[10px] uppercase font-mono tracking-widest text-[#666] bg-[#111] px-2 py-1 rounded border border-[#222]">

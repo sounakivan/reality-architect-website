@@ -52,7 +52,7 @@ export default function Home() {
           <span className="h-px bg-[#222] flex-1"></span>
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {["e2engine", "inner-light", "modular-xr-system"].map((slug) => {
+          {["transfr-vr-education", "inner-light", "scriptr"].map((slug) => {
             const project = projects.find(p => p.slug === slug);
             if (!project) return null;
             return (

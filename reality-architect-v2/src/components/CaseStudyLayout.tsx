@@ -8,6 +8,7 @@ export default function CaseStudyLayout({
   challenge,
   impact,
   videoUrl,
+  steamEmbed,
   caseStudyMeta,
   backHref = "/",
   backLabel = "Back to Base",
@@ -19,6 +20,7 @@ export default function CaseStudyLayout({
   challenge: string;
   impact: string;
   videoUrl?: string;
+  steamEmbed?: string;
   backHref?: string;
   backLabel?: string;
   caseStudyMeta?: { role: string; company: string; companyUrl: string; timeline: string };
@@ -76,6 +78,18 @@ export default function CaseStudyLayout({
           <p className="text-white leading-relaxed font-medium">{impact}</p>
         </div>
       </div>
+
+      {steamEmbed && (
+        <div className="mb-16 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-200 fill-mode-both overflow-x-auto">
+          <iframe
+            src={steamEmbed}
+            frameBorder="0"
+            width="646"
+            height="190"
+            className="max-w-full"
+          />
+        </div>
+      )}
 
       {videoUrl && (
         <div className="mb-16 relative w-full aspect-video rounded-lg overflow-hidden border border-[#222] bg-[#0a0a0a] shadow-[0_0_30px_rgba(0,229,255,0.1)] animate-in fade-in slide-in-from-bottom-8 duration-700 delay-200 fill-mode-both">

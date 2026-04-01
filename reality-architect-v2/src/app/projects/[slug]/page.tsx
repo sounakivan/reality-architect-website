@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowLeft, CheckSquare } from "lucide-react";
 import { notFound } from "next/navigation";
 import CaseStudyLayout from "@/components/CaseStudyLayout";
+import ImageLightbox from "@/components/ImageLightbox";
 
 export function generateStaticParams() {
   return projects.map((p) => ({
@@ -28,14 +29,15 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
         challenge={project.challenge}
         impact={project.impact}
         videoUrl={project.videoUrl}
+        steamEmbed={project.steamEmbed}
         caseStudyMeta={project.caseStudyMeta}
         backHref="/projects"
         backLabel="Back to Vault"
       >
         {project.content?.map((section, idx) => (
           <div key={idx} className="mb-12">
-            <h2 className="text-2xl font-bold text-white mb-4 tracking-tight">{section.title}</h2>
-            <p className="text-[#aaa] leading-relaxed font-mono">{section.body}</p>
+            {section.title && <h2 className="text-2xl font-bold text-white mb-4 tracking-tight">{section.title}</h2>}
+            {section.body && <p className="text-[#aaa] leading-relaxed font-mono">{section.body}</p>}
             
             {section.list && section.list.length > 0 && (
               <ul className="mt-4 space-y-3 font-mono text-[#aaa]">
@@ -49,17 +51,42 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
             )}
             
             {section.images && section.images.length > 0 && (
-              <div className={`mt-8 w-11/12 mx-auto grid gap-6 ${section.images.length > 1 ? 'grid-cols-1 md:grid-cols-2' : 'grid-cols-1'}`}>
-                {section.images.map((img, i) => (
-                  <div key={i} className="relative flex justify-start items-center">
-                    <img 
-                      src={img} 
-                      alt={`${section.title} visual ${i+1}`} 
-                      className="max-w-full h-auto object-contain rounded-md border border-[#222] bg-[#0a0a0a] opacity-90 shadow-md hover:opacity-100 transition-opacity" 
+              section.centerImage ? (
+                <div className="mt-8 flex justify-center">
+                  {section.images.map((img, i) => (
+                    <ImageLightbox
+                      key={i}
+                      src={img}
+                      alt={`${section.title} visual ${i + 1}`}
+                      className="w-3/4 h-auto object-contain rounded-md border border-[#222] bg-[#0a0a0a] opacity-90 shadow-md hover:opacity-100 transition-opacity"
                     />
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
+              ) : section.compactGrid ? (
+                <div className={`mt-4 grid gap-2 ${section.images.length > 1 ? 'grid-cols-2' : 'grid-cols-1'}`}>
+                  {section.images.map((img, i) => (
+                    <div key={i} className="relative flex justify-start items-center">
+                      <ImageLightbox
+                        src={img}
+                        alt={`${section.title} visual ${i + 1}`}
+                        className="max-w-full h-auto object-contain rounded-md border border-[#222] bg-[#0a0a0a] opacity-90 shadow-md hover:opacity-100 transition-opacity"
+                      />
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className={`mt-8 md:-mx-12 lg:-mx-16 grid gap-6 ${section.images.length > 1 ? 'grid-cols-1 md:grid-cols-2' : 'grid-cols-1'}`}>
+                  {section.images.map((img, i) => (
+                    <div key={i} className="relative flex justify-start items-center">
+                      <ImageLightbox
+                        src={img}
+                        alt={`${section.title} visual ${i + 1}`}
+                        className="max-w-full h-auto object-contain rounded-md border border-[#222] bg-[#0a0a0a] opacity-90 shadow-md hover:opacity-100 transition-opacity"
+                      />
+                    </div>
+                  ))}
+                </div>
+              )
             )}
 
             {section.videoUrl && (
@@ -71,6 +98,22 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 ></iframe>
+              </div>
+            )}
+
+            {section.videoUrls && section.videoUrls.length > 0 && (
+              <div className="mt-8 grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-2 md:-mx-12 lg:-mx-16">
+                {section.videoUrls.map((url, i) => (
+                  <div key={i} className="relative w-full aspect-video rounded-lg overflow-hidden border border-[#222] bg-[#0a0a0a] shadow-[0_0_30px_rgba(0,229,255,0.1)]">
+                    <iframe
+                      src={url.replace("watch?v=", "embed/")}
+                      className="w-full h-full absolute top-0 left-0"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+                ))}
               </div>
             )}
           </div>

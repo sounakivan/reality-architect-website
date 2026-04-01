@@ -11,8 +11,10 @@ export interface Project {
   videoUrl?: string;
   challenge?: string;
   impact?: string;
+  hidden?: boolean;
   caseStudyMeta?: { role: string; company: string; companyUrl: string; timeline: string };
-  content?: { title: string; body: string; list?: string[]; images?: string[]; videoUrl?: string; }[];
+  steamEmbed?: string;
+  content?: { title?: string; body?: string; list?: string[]; images?: string[]; centerImage?: boolean; compactGrid?: boolean; videoUrl?: string; videoUrls?: string[]; }[];
 }
 
 export const projects: Project[] = [
@@ -24,8 +26,9 @@ export const projects: Project[] = [
     description: "Real-time brain-computer interface (BCI) translation and VR biofeedback architecture.",
     techStack: ["BCI", "Unity", "C#", "Signal Processing"],
     image: "/projects/Inner-Light-Cover.gif",
-    challenge: "Exploring altered states of consciousness and providing measurable health and wellness benefits through a hybrid art and neuro-technology experiment.",
-    impact: "Successfully built a real-time brain-computer interface where human brainwave frequencies directly controlled VR avatar embodiment, culminating in a simulated out-of-body experience during white light meditation.",
+    challenge: "The project required architecting a real-time system to translate complex EEG data into a procedural virtual avatar, turning invisible neural activity into a tangible, immersive embodiment.",
+    impact: "This experiment demonstrated that biofeedback-driven XR can induce profound psychological shifts and was recognized with a showcase at MOCDA (Museum of Contemporary Digital Art) during the 2022 Digital Summer Show.",
+    videoUrl: "https://www.youtube.com/watch?v=DdbErMHHXC4",
     caseStudyMeta: {
       role: "Creative Technologist and XR Artist",
       company: "Independent Research / Master's Thesis",
@@ -34,16 +37,45 @@ export const projects: Project[] = [
     },
     content: [
       {
-        title: "The Embodiment Experiment",
-        body: "Inner Light began as a hybrid art and tech experiment. My goal was to explore how we could use VR not just as a visual medium, but as an extension of the Body-Mind. By integrating an EEG sensor, I developed a system where users could embody a virtual avatar driven entirely by their brain waves. The frequency of the neural data fed directly into the system, dynamically controlling the physical form and light emission of the avatar in real-time."
+        title: "Can We Code a Connection to the Self?",
+        body: "Inner Light was born from a desire to move VR beyond a purely visual medium and create an embodied extension of the body-mind as a whole. The project served as both an immersive art installation and an academic exploration into the efficacy of neurofeedback within virtual environments.",
+        images: ["/projects/eeg vr feedback loop.jpg"]
       },
       {
-        title: "Facilitating an Out-of-Body Experience",
-        body: "The core of the experience was built around a white light meditation. Once the user was fully embodied and reached a meditative state, the system took over. I programmed a sequence that simulated an out-of-body experience by gradually separating and removing the user from their avatar. The purpose of this was twofold: to deeply explore states of consciousness, and to tap into profound health and wellness benefits through biofeedback and complete digital dissociation, such that most people who tried it had a surprised and positive reaction during the out-of-body experience."
+        title: "The Technical Dialogue: Brainwaves as Brushes",
+        body: "The design challenge was to create a real-time, bi-directional dialogue between a user’s internal state and their digital representation. I approached this by architecting a system that translated invisible neural activity into tangible, physical form.",
+        images: ["/projects/EEG headset.png", "/projects/EEG data.gif"]
       },
       {
-        title: "Hardware & Neurotech Integration",
-        body: "I used an Emotiv headset for EEG detection. This headset had five sensors and I was using Emotiv software to get a processed signal which gives me the range for brainwave frequencies (alpha, beta, gamma, delta). For the virtual avatar I created a 3D model and used the shader to create a wave-like material. The amplitude of this wave-like material was procedurally driven by the range of the EEG data coming in. This formed a real-time mind-body user interface through Neurotech and VR."
+        list: [
+          "Neurotech Integration: I utilized an Emotiv EEG headset with five sensors to capture raw neural data. Using Emotiv's software, I isolated the frequency ranges for Alpha, Beta, Gamma, and Delta waves, providing a structured data stream representing the user's focus and relaxation levels.",
+          "Procedural Visualization: In Unity, I developed a custom 3D avatar with a specialized wave-like shader. I programmed the amplitude and light emission of this shader to be procedurally driven by the incoming EEG data.",
+          "The Interface: This created a Neuro-Immersive UI where the \"user interface\" wasn't a menu, but the user's own virtual skin. When the user reached a state of meditative focus, the avatar’s light would stabilize and pulse in synchronicity with their neural rhythm.",
+          "Full Body IK Avatar: for the embodiment to be realistic and truly felt, I had to make the avatar a full-body IK system by targeting only the head and the two controllers. This heightened the sense of embodiment that users felt with this virtual body."
+        ],
+        videoUrl: "https://www.youtube.com/watch?v=ZLCiP7Zhvg8"
+      },
+      {
+        title: "The Experience: From Embodiment to Dissociation",
+        body: "The narrative arc of Inner Light followed a specific psychological protocol designed to test the limits of digital presence.",
+        list: [
+          "Deep Embodiment: The experience began with a guided white light meditation. By seeing their own \"brainwaves\" reflected in the avatar they occupied, users experienced a profound sense of embodiment - a feeling that the virtual body was truly their own.",
+          "Digital Dissociation: Once a stable meditative state was reached, the system initiated a programmed sequence I designed to simulate an out-of-body experience. I scripted the camera and avatar transform logic to gradually separate the user's viewpoint from the virtual form they had just inhabited.",
+          "The Conceptual Framework: This idea of simulating an out-of-body experience to explore consciousness was informed by research from Mel Slater at the University of Barcelona, which demonstrated that such virtual experiences can effectively reduce the fear of death."
+        ],
+        images: ["/projects/user test 1.jpeg", "/projects/user test 2.jpeg"]
+      },
+      {
+        title: "Learnings: The Tension of the Void",
+        body: "During the development and testing of this experiment, I discovered that the human response to digital \"detachment\" is far from uniform.\nI initially anticipated that the transition to an out-of-body state following a white light meditation would be an almost universally liberating feeling. While many participants did describe a sense of profound freedom and lightness, a subset of users felt a distinct sense of unease during the separation as well. This divergence brought the experiment back to its core philosophical root: the fear of dying, and how we each respond to it."
+      },
+      {
+        title: "Impact & Recognition",
+        body: "This experiment bridged the gap between Neuroscience, Spiritual Tradition, and XR Engineering. It proved that biofeedback, when integrated with intentional storytelling, can produce measurable psychological shifts.",
+        list: [
+          "Featured Artist: Presented at MOCDA (Museum of Contemporary Digital Art) during the 2022 Digital Summer Show.",
+          "Published as Academic Thesis in Integrated Digital Media from NYU Tandon School of Engineering in 2022. Read it here: https://www.proquest.com/openview/d850eeb668d48ecf11a179d30c028609/1?pq-origsite=gscholar&cbl=18750&diss=y"
+        ]
       }
     ]
   },
@@ -54,7 +86,7 @@ export const projects: Project[] = [
     category: "VR Education",
     description: "Building VR simulations for career education and training reaching 100,000+ customers.",
     techStack: ["Unity", "C#", "Oculus", "EdTech"],
-    image: "/projects/Transfr logo.png",
+    image: "/projects/hand signals 1POV.gif",
     challenge: "Building highly effective, standardized career exploration and training simulations that could serve diverse populations—from high school students to incarcerated individuals undergoing workforce rehabilitation.",
     impact: "Reached 100,000+ users nationwide, building over 15 unique career simulations for the Trek VR library and actively developing the proprietary SDK that enabled Transfr's VR production at massive scale.",
     caseStudyMeta: {
@@ -65,20 +97,43 @@ export const projects: Project[] = [
     },
     content: [
       {
-        title: "Building Pathways to Careers",
-        body: "At Transfr, I was tasked with building career exploration simulations for a flagship product called Trek VR. The goal was massive: we wanted to build pathways directly from the classroom to the career. Over my time there, I personally built over 15 distinct simulations for the library, covering a wide array of different careers. These modules reached hundreds of thousands of users across incredible demographics—from high school classrooms to workplace facilities, and even extending into prisons to aid in workforce rehabilitation and education."
+        title: "The Mission: Building Pathways to Upward Mobility",
+        body: "At Transfr, the goal was to build a direct bridge from the classroom to a career. I served as a Senior Technical Designer leading the design and development of over 15 distinct VR simulations, covering a wide array of technical trades - from automotive technicians to pipefitting specialists. These modules were deployed in high school classrooms and workplace facilities across the U.S., providing thousands of students with the trade skills necessary for economic advancement."
       },
       {
-        title: "Engineering the Proprietary SDK",
-        body: "Beyond just building individual experiences, I was deeply involved in the foundational tools themselves. I also built complex training simulations for specific instructional modules, which required a robust technical pipeline. To support this scale, I helped Transfr build and refine their proprietary SDK. This SDK became the backbone of our operations, enabling rapid, high-quality VR simulation production across the entire studio and standardizing how we built interactions."
+        body: "My responsibilities:",
+        list: [
+          "Coordinating with instruction designer, technical artists and sound designers to build the scene in Unity and developing the simulation logic using the Transfr SDK.",
+          "Collaborate with SDK developers to improve the tooling and features to build VR simulations like interaction templates, nodes and components, voice-over generation. NPC animations, and more.",
+          "Solve design problems unique to each career and training simulation and provide a seamless UX experience in XR."
+        ]
+      },
+      {
+        title: "Bridging Design, Product, and Engineering",
+        body: "We were not only building the car but also the factory while building the car. In this effort, I collaborated with multi-disciplinary teams to build and refine Transfr’s proprietary SDK (in Unity) and XR interaction system for training. I helped the company scale from building single prototypes to a library of enterprise-grade VR simulations. These are a few of my contributions.",
+        list: [
+          "XR Standardization at Scale: I helped translate complex, real-world physical interactions - like operating a CNC machine or handling specialized laboratory tools - into standardized XR interaction patterns.",
+          "Product and Engineering: I helped drive the SDK’s development, which enabled us to maintain high-quality visual and instructional standards across every module, through proprietary tools like Node Flow Studio and Asset Manager.",
+          "Production Workflows: Beyond design, I focused on system design and building AI-driven workflows to scale production, connect verticals and increase the efficiency of our simulation development."
+        ],
+        videoUrls: [
+          "https://www.youtube.com/watch?v=k3s7FKBwGUM",
+          "https://www.youtube.com/watch?v=JVDBVQJN8gE",
+          "https://www.youtube.com/watch?v=bYTgL4Epbm0",
+          "https://www.youtube.com/watch?v=1gRl3-z30Ow",
+          "https://www.youtube.com/watch?v=kIoA0NYGLWg",
+          "https://www.youtube.com/watch?v=2EGeHwZ_DPU"
+        ]
       },
       {
         title: "Real-World Impact & Efficacy",
-        body: "Hundred thousand plus customers have used this throughout the U.S. Efficacy studies show that some of the simulations I've built have better learning gains than real-world practice. These simulations have also helped thousands of students from middle schools and high schools choose their trade skills as a profession and find pathways to upward mobility."
-      },
-      {
-        title: "The Scale of Immersion",
-        body: "Moving from prototype to production in XR requires a fundamental shift in how applications are architected. The challenge wasn't just building a simulation—it was building a factory that builds simulations. Every interaction, from picking up a digital wrench to operating a highly complex CNC machine, needed to be intuitive, performant, and instructionally sound."
+        body: "The true value of these simulations was validated through rigorous testing and real-world deployment.",
+        list: [
+          "Learning Gains: Efficacy studies demonstrated that the simulations we built often resulted in higher learning gains than traditional real-world practice alone.",
+          "Human-Centric Design: By facilitating continuous user testing and feedback loops, I ensured that our tools evolved alongside the needs of the learners they served.",
+          "National Reach: With over 100,000 customers using these tools throughout the U.S., we successfully proved that immersive technology could be a primary driver for workforce development and vocational education."
+        ],
+        videoUrl: "https://www.youtube.com/watch?v=uvEmhJ1RrmA"
       }
     ]
   },
@@ -89,7 +144,7 @@ export const projects: Project[] = [
     category: "XR Design",
     description: "Modular templates and XR design system for improved production efficiency and design quality.",
     techStack: ["Design Systems", "Figma", "Unity", "UX/UI"],
-    image: "/projects/drill.gif",
+    image: "/projects/tool asset templates.gif",
     challenge: "Fragmented UI/UX patterns across dozens of VR simulations led to inconsistent user experiences and bloated production timelines as designers rebuilt basic interaction models from scratch.",
     impact: "Established a unified spatial design system that improved production efficiency by 40% and drastically elevated the baseline quality and accessibility of all new VR content.",
     caseStudyMeta: {
@@ -133,7 +188,7 @@ export const projects: Project[] = [
     category: "AI Automation",
     description: "An AI-powered agentic system using n8n to automate VR simulation formatting, asset population, and playable end-to-end creation.",
     techStack: ["AI Automation", "Python", "LLMs", "n8n"],
-    image: "/projects/nodeflow templates.png",
+    image: "/projects/Scriptr Agentic System thumbnail.png",
     challenge: "Enhancing the efficiency of creating high-quality VR simulations by reducing vendor scope, massive production costs, and tedious, time-intensive script design.",
     impact: "Estimated to save $214,290 and 2,400 hours of production time across 15 simulations in 2025, successfully decreasing vendor timelines by 4 weeks and costs by 28.6%.",
     caseStudyMeta: {
@@ -144,16 +199,28 @@ export const projects: Project[] = [
     },
     content: [
       {
+        images: ["/projects/Scriptr Agentic System.png"]
+      },
+      {
         title: "Phase 1: ScreenplAi — From 5 Days to 75 Minutes",
         body: "The first hurdle was scriptwriting. Vendors spent days drafting scripts that often missed the mark.",
         list: [
           "The Solution: I built ScreenplAi, an AI chatbot created using Google Gems that has a curated knowledge base of writing instructional voice-overs and format scripts for VR Sim Development. It scrapes real-world career data from O*NET and translates it into five distinct simulation concepts and task lists which can then be refined into a full script with instructional voice-over and formatting for VR interaction design.",
           "The Impact: In our pilot for a 'Food Scientist' simulation, we reduced the time to a final, formatted script from 5 days down to just 75 minutes."
-        ]
+        ],
+        images: ["/projects/screenplai.gif"],
+        centerImage: true
       },
       {
         title: "Phase 2: Asset Bot — Eliminating Redundancy",
-        body: "Once the script is generated, an AI-powered workflow searches Transfr's Asset Library for 3D assets, tools, and interaction templates to populate Unity projects. This eliminates redundant asset creation, drastically improves project scoping accuracy, and immediately flags any missing assets by autonomously creating Jira tickets for the art pipeline.\n\nUsing Gemini's vector embeddings: we created a RAG database of 3D assets with description tags. This enabled other AI workflows (like n8n) to retrieve assets from this database using Semantic Search."
+        body: "Once the script is generated:",
+        list: [
+          "An AI workflow (n8n) searches Transfr's Asset Library for 3D assets, tools, and interaction templates to populate Unity projects.",
+          "This eliminates redundant asset creation, drastically improves project scoping accuracy, and immediately flags any missing assets by autonomously creating Jira tickets for the art pipeline.",
+          "Using Gemini's vector embeddings: we created a RAG database of 3D assets with description tags. This enabled other AI workflows (like n8n) to retrieve assets from this database using Semantic Search."
+        ],
+        images: ["/projects/Asset Search Workflow.png"],
+        videoUrl: "https://www.youtube.com/watch?v=QTTlHD1bFL0"
       },
       {
         title: "Phase 3: E2Engine — The End-to-End Revolution",
@@ -162,7 +229,9 @@ export const projects: Project[] = [
           "The Solution: E2Engine is designed to fully auto-generate a playable end-to-end (E2E) structure in Unity, complete with voice-over setup and an editable scene graph.",
           "Technical Implementation: I wrote an 11-page system prompt to context engineer how an LLM model should translate a script document into a pseudo-code structure (aligned with Transfr's SDK capabilities) parsed by a Unity C# script which runs the automation workflow in Unity.",
           "The Strategic Shift: This moves the vendor's role from 'early-stage creation' to 'high-fidelity polish,' allowing us to validate the design much earlier in the cycle."
-        ]
+        ],
+        images: ["/projects/E2Engine Workflow.png"],
+        videoUrl: "https://www.youtube.com/watch?v=o8P4NtaDxYY"
       },
       {
         title: "The Impact: Scalable Innovation",
@@ -182,7 +251,7 @@ export const projects: Project[] = [
     category: "AI Workflows",
     description: "End-to-end multi-agent orchestration converting conceptual ideas into production-ready assets automatically.",
     techStack: ["n8n", "ElevenLabs", "GPT-4", "Airtable"],
-    image: "/projects/youtube automation n8n.png",
+    image: "/projects/n8n human loop.gif",
     challenge: "Generating consistent, high-quality YouTube content involved a fragmented, manual process jumping between ideation, scriptwriting, voiceover recording, and asset management.",
     impact: "I used this pipeline to run three YouTube channels, successfully driving 91.4k combined views through fully autonomous content generation.",
     caseStudyMeta: {
@@ -193,16 +262,21 @@ export const projects: Project[] = [
     },
     content: [
       {
-        title: "The Orchestration Layer",
-        body: "As a YouTuber myself, I wanted to automate as much of the YouTube content production pipeline as possible. I architected a workflow of specialized AI agents using n8n to bridge diverse APIs and automate the content creation pipeline."
+        images: ["/projects/youtube automation n8n.png"]
       },
       {
-        title: "Automated Research & Asset Creation",
-        body: "The AI Agents handled the research and script writing, as well as project management tasks such as creating the files in my Google Drive. The workflow also heavily utilized ElevenLabs for generating high-quality voiceovers."
+        title: "The Architecture: An Agentic Ecosystem",
+        body: "I used n8n as the orchestrator to build a multi-agentic ecosystem that bridged the gap between creative ideation and technical execution.",
+        list: [
+          "Intelligent Scripting & Research: I built agents that scrape trending data and research niche topics, synthesizing that information into structured scripts that follow proven engagement frameworks.",
+          "Cost-Aware Voiceover Strategy: To maximize ROI, I added a human-in-the-loop review. The system sends the script for human approval before calling the ElevenLabs API. This strategic delay ensures we save tokens on high-fidelity voiceover generation until the narrative is finalized.",
+          "The Command Center: I integrated an Airtable database to serve as the project's central nervous system. Every step - script research, file creation, and status updates - is logged in real-time, providing a transparent view of the autonomous production line.",
+          "Automated Project Management: The workflow automatically handles file creation and organization, ensuring that the final \"package\" is ready for a video editor or an automated assembly tool with all necessary assets in place."
+        ]
       },
       {
-        title: "Human-in-the-loop & Tracking",
-        body: "Before utilizing expensive audio generation credits or finalizing the project, the workflow halted for a human-in-the-loop review step for approval. Once approved, the data was organized within an Airtable database for seamless project tracking."
+        title: "The Result: Scalable Creative Output",
+        body: "This pipeline proved that with the right AI strategy, one person can operate at the scale of an entire production studio. The 91.4k views weren't just a win for the algorithm; they were a validation of how agentic systems change the game. By automating the repetitive \"drudgery\" of content management, I free up the space needed to focus on generating good video ideas that truly resonate with an audience."
       }
     ]
   },
@@ -222,14 +296,31 @@ export const projects: Project[] = [
       companyUrl: "",
       timeline: "18 months"
     },
+    steamEmbed: "https://store.steampowered.com/widget/1889880/",
     content: [
       {
-        title: "Visualizing the Microscopic",
-        body: "I built the 3D assets for the biology simulations to successfully visualize what physical elements exist under the microscope. I utilized an Unreal Engine and Maya workflow heavily focused on Physically Based Rendering (PBR) to make the microscopic world feel tangible."
+        title: "Visualizing the Invisible",
+        body: "To make the microscopic world feel grounded, I moved beyond simple modeling. I built a library of 3D assets and animations - from mitochondria to the cell membrane - designed to accurately represent what exists under a microscope.",
+        list: [
+          "The Workflow: I utilized a high-precision pipeline between Maya and Unreal Engine, heavily focused on Physically Based Rendering (PBR).",
+          "The Result: This approach gave the cellular environment a \"tangible\" quality, using realistic materials and light behavior to help students distinguish between different organic structures."
+        ],
+        images: ["/projects/cells 1.gif", "/projects/cells 2.gif", "/projects/cells 3.gif", "/projects/cells 4.gif"],
+        compactGrid: true
       },
       {
-        title: "Shaders & Spatial Interface",
-        body: "Beyond modeling, I designed custom shaders utilizing the Blueprint system in Unreal Engine. I also created the spatial UI that became the core interface for the cellular sandbox, always keeping in mind UX practices tailored specifically for middle schoolers."
+        title: "Building Functional Prototypes in Unreal Engine",
+        body: "My role extended into the technical architecture of the experience, bridging the gap between static art and interactive education.",
+        list: [
+          "Interactive Shaders: I developed custom shaders to simulate the translucent, fluid nature of cellular matter, ensuring the environment felt alive and responsive.",
+          "Blueprint Scripting: Using the Unreal Engine Blueprint system, I built functional prototypes for the VR tools and UIs that students used to navigate the cell.",
+          "Instructional Design: I worked closely with researchers to iteratively design interactions that weren't just \"cool,\" but instructionally sound, ensuring every movement in the VR space reinforced a biological concept."
+        ],
+        images: ["/projects/blueprints 1.png", "/projects/blueprints 2.png"]
+      },
+      {
+        title: "The Intersection of Science and Design",
+        body: "\"Looking Inside Cells\" required a deep commitment to human-centric design. By focusing on performance optimization and computer graphics, I helped create a world where students could stop \"looking\" at biology and start \"experiencing\" it. This project reinforced my belief that when we make the invisible tangible, we unlock a deeper capacity for curiosity and learning."
       }
     ]
   },
@@ -241,8 +332,8 @@ export const projects: Project[] = [
     description: "Voice and gaze-controlled hand interactions designed to make XR more accessible for users with limited mobility.",
     techStack: ["Spatial UX", "Blender", "Figma", "Research"],
     image: "/projects/FreehandAssistant Cover.gif",
-    challenge: "Addressing the lack of inclusive XR interactions for users with disabilities impacting handedness, spanning from temporary injuries to long-term conditions like amputees.",
-    impact: "Prototyped a robust multi-modal input system combining voice and gaze, paving the way for more inclusive, hands-free spatial UX.",
+    challenge: "Most XR interaction models are built on a \"hand-centric\" bias, assuming users have full, bilateral mobility. This leaves a massive accessibility gap for individuals with disabilities impacting handedness - ranging from temporary injuries to long-term conditions and limb differences.",
+    impact: "Developed a functional interaction protocol that allows users to navigate and interact with XR environments hands-free. This project established a blueprint for inclusive XR design, ensuring that immersive experiences are accessible to everyone, regardless of their physical mobility.",
     caseStudyMeta: {
       role: "Spatial UX Designer",
       company: "Independent UX Research",
@@ -251,16 +342,26 @@ export const projects: Project[] = [
     },
     content: [
       {
-        title: "Research & Accessibility Needs",
-        body: "In this project, I was looking for a solution to XR interactions tailored for users with handedness disabilities. I conducted comprehensive interviews with people with disabilities to deeply understand how they currently interact with XR and what physical pain points they face."
+        images: ["/projects/sketches.jpeg"],
+        centerImage: true
       },
       {
-        title: "Prototyping & Iteration",
-        body: "The development pipeline started with cardboard lo-fi prototypes to test initial ergonomics, and evolved into high-fidelity prototypes built in Unity utilizing advanced hand tracking."
+        title: "The Design Journey: From Empathy to Architecture",
+        body: "Inclusive design isn't just a technical challenge; it's a human one. My process was rooted in a deep, iterative cycle of research and prototyping.",
+        list: [
+          "Ideation & Sketching: I began with rapid sketches, exploring how we could \"un-map\" standard controller inputs and redistribute them across other human sensory channels.",
+          "User Interviews: I conducted in-depth interviews with individuals in the disability community. These conversations moved beyond technical needs and into the emotional landscape of immersion - understanding the frustration of being \"locked out\" of a digital world due to rigid hardware requirements.",
+          "User Profiling: I synthesized these insights into a specific user profile that spanned the spectrum of accessibility needs. This helped me move away from \"edge-case\" thinking and toward a \"universal design\" mindset.",
+          "Low-Fidelity Prototyping: I built initial cardboard prototypes with laser pointers strapped to my head to act as the gaze pointer. Could a user effectively navigate a 3D space without the tactile feedback of a trigger or grip?",
+          "The Multi-Modal Solution: The final prototype utilized a Voice and Gaze-based interaction model. By combining eye-tracking for selection and natural language processing for execution, I created a seamless \"Free Hand\" experience that offered 100% functionality without a single hand gesture."
+        ],
+        images: ["/projects/Freehand Hero shot.png", "/projects/freehand 1.gif", "/projects/freehand 2.gif", "/projects/freehand 3.gif"],
+        compactGrid: true
       },
       {
-        title: "Voice & Gaze Interaction Modeling",
-        body: "Following the hand-tracking prototypes, I ultimately designed a voice and gaze-based interaction model. This system effectively allowed users to interact in XR entirely hands-free, ensuring the platform remained accessible regardless of physical mobility."
+        title: "Learnings: From Accessibility to \"Superpowers\"",
+        body: "In the process of solving the physical mobility problem, I stumbled upon a realization that changed my perspective on the future of XR.\n\nWhile I was focused on creating an alternative for those who couldn't use their hands, I discovered that this interaction schema actually functions as a digital superpower for everyone. When we stop viewing gaze and voice as \"replacements\" and start viewing them as \"extensions,\" the possibilities explode.\n\nImagine a VR environment where you use your physical hands for tactile work, while your gaze and voice act as a second or third set of \"ghost hands\" to manage menus or move distant objects simultaneously. By designing for the \"limited\" case, we inadvertently unlock new tiers of human performance for the general user. It raises a compelling question for the future of spatial computing: Why settle for two hands when the digital world allows us to have many?",
+        images: ["/projects/freehand super.png"]
       }
     ]
   },
@@ -272,8 +373,8 @@ export const projects: Project[] = [
     description: "3D Design of avatars, therapeutic environments, and interfaces for Foretell Reality, a platform aiming to redefine group support and psychological therapy.",
     techStack: ["Maya", "Unity", "VR/Avatars"],
     image: "/projects/Screenshot.png",
-    challenge: "Creating therapeutic, psychologically safe virtual environments and avatars that facilitate vulnerable group support sessions.",
-    impact: "Designed core 3D assets and environments for Foretell Reality, establishing their foundational aesthetic for virtual therapy.",
+    challenge: "Traditional therapy can be daunting, but VR group therapy presents a unique set of obstacles: how do you design a digital space and a representation of the self that fosters enough trust for deep, personal disclosure?",
+    impact: "Successfully shipped the experience on a VR therapy platform (XR Health) where users felt secure enough to engage in group sessions. By blending environmental psychology with intentional avatar design, we created a virtual sanctuary that made mental health support more accessible remotely.",
     caseStudyMeta: {
       role: "3D Artist",
       company: "Foretell Reality / Glimpse Group",
@@ -282,12 +383,39 @@ export const projects: Project[] = [
     },
     content: [
       {
-        title: "Environment Design for Psychological Safety",
-        body: "The core focus of my work was designing the therapeutic environments and user interfaces. Every aspect of the environment's layout, lighting, and palette had to be constructed to promote an atmosphere of calm and psychological safety during group support therapy."
+        title: "The Architecture of Trust: Designing a Digital Sanctuary",
+        body: "In a therapy setting, the environment is also a part of the healing. I approached the design of the virtual rooms through the lens of environmental psychology, focusing on elements that promote an atmosphere of calm.",
+        list: [
+          "Palette & Materials: I moved away from sterile, \"tech-heavy\" aesthetics in favor of warm colors and earthy materials like wood.",
+          "Atmospheric Lighting: I engineered the lighting to feel soft and inviting, avoiding harsh shadows to ensure the space felt open yet intimate.",
+          "Spatial Layout: The layout was constructed to promote a sense of groundedness, providing enough space for group connection without making the user feel exposed or overwhelmed."
+        ],
+        images: ["/projects/Screenshot.png"]
       },
       {
-        title: "Avatar Representation",
-        body: "I also led the 3D design of the platform's avatars, ensuring they effectively communicated bodily emotion and presence while avoiding the uncanny valley, crucial for maintaining comfort during vulnerable psychological sessions."
+        title: "Avatars as a Shield: Balancing Anonymity and Expression",
+        body: "One of the most critical aspects of group therapy is the user's sense of safety in disclosing to others. I led a research phase into avatar representations, studying the spectrum from hyper-realistic to highly stylized forms and what emotions they evoked.",
+        list: [
+          "The Findings: My research showed that while realism can be impressive, stylized avatars often provide a higher degree of psychological \"ease\" and anonymity.",
+          "Anonymity: I developed a customization system that allowed users to tailor their appearance. This granted them a level of digital \"masking\" that acted as a shield, making them feel safer and more comfortable during vulnerable group interactions."
+        ],
+        videoUrl: "https://www.youtube.com/watch?v=vVOJIVCT6MQ"
+      },
+      {
+        title: "Bridging the Experience: Technical Implementation & Collaboration",
+        body: "My work extended beyond the aesthetic into the functional to ensure the user's journey was seamless from the moment they put on the headset.",
+        list: [
+          "UI/UX System Design: I built the UI systems for both the Avatar Selection and the Room Selection modules. The goal was to make the process of entering a therapy session feel as frictionless and calming as the session itself.",
+          "Cross-Functional Delivery: I collaborated closely with a team of product designers and engineers to ensure the 3D assets, shaders, and UI elements were optimized for performance without sacrificing the \"warmth\" of the visual style."
+        ],
+        images: ["/projects/LobbyRoom.jpg"]
+      },
+      {
+        title: "Learnings: The Value of \"Digital Distance\"",
+        list: [
+          "Embodiment is self-expression: This project reinforced my belief that in XR, less can often be more. By intentionally designing for anonymity through stylized avatars, we unlocked a new way for people to connect.",
+          "A humanistic approach to Telehealth: I learned that the \"distance\" provided by a digital representation doesn't hinder empathy - it often enables it by removing the fear of judgment. In the future of VR therapy, the most powerful tool we can offer a user is a space where they feel truly seen, even when they choose to remain hidden."
+        ]
       }
     ]
   },
@@ -296,6 +424,7 @@ export const projects: Project[] = [
     categorySlug: "xr-design",
     title: "Victorious Athlete in AR",
     category: "Museum AR",
+    hidden: true,
     description: "A location-based AR app revealing the long-lost history of one of the Getty Villa's most prized bronze statues.",
     techStack: ["Unity", "Photogrammetry", "AR"],
     image: "/projects/ar athlete.png",
@@ -319,15 +448,6 @@ export const projects: Project[] = [
     ]
   },
   {
-    slug: "documentation-support-rag",
-    categorySlug: "agentic-workflows",
-    title: "Documentation Support RAG Agent",
-    category: "Generative AI",
-    description: "An interactive, LLM-powered RAG (Retrieval-Augmented Generation) agent built for intelligent documentation search and conversational support.",
-    techStack: ["LangChain", "Vector DB", "OpenAI API", "RAG"],
-    image: "/projects/Interaction Framework.png"
-  },
-  {
     slug: "breathsync",
     categorySlug: "neuro-tech",
     title: "BreathSync",
@@ -335,8 +455,8 @@ export const projects: Project[] = [
     description: "A research-backed VR biofeedback experience teaching deep belly breathing to promote mindfulness and reduce stress.",
     techStack: ["Unity", "Biofeedback", "Shader Graph", "VR"],
     image: "/projects/breathync.jpg",
-    challenge: "Creating a robust, research-backed wellness VR experience tracking complex physiological breathing patterns in just three days.",
-    impact: "Won 'Best Research Application' at the 2021 XR Brain Jam for its innovative approach to promoting positive mental health.",
+    challenge: "How can we guide a user through anxiety-reducing breathwork using only standard consumer VR hardware? In a high-pressure, three-day hackathon environment, my team was tasked with creating an accessible, research-backed tool for anxiety reduction that didn't rely on specialized medical sensors.",
+    impact: "Awarded Best Research Application at the 2021 XR Brain Jam and showcased at Games for Change Festival, our project was recognized for its innovative use of biofeedback to promote physiological regulation and successfully bridging clinical research with creative engineering.",
     caseStudyMeta: {
       role: "Producer & Technical Artist",
       company: "XR Brain Jam 2021 (Games for Change Festival)",
@@ -345,16 +465,34 @@ export const projects: Project[] = [
     },
     content: [
       {
-        title: "Biofeedback Mechanics",
-        body: "The core interaction relies on syncing the user's physiological breathing rate with the virtual environment. As the user performs 'box breathing', the hypoxic technique oxygenates the blood and the environment dynamically responds, revealing new visual layers."
+        videoUrl: "https://www.youtube.com/watch?v=l-tr_QAobac"
       },
       {
-        title: "Technical Implementation",
-        body: "In VR the user sees a central orb that grows larger and smaller based on their inhalation or exhalation. We creatively tracked this breathing by strapping a VR controller to the user's stomach and using the controller's translational movement data to directly scale the size of the orb. The core gameplay loop became using your own breathing to keep your orb's size perfectly synced with a guiding, rhythmic orb."
+        title: "Visualizing the Internal State",
+        body: "In 2021, I collaborated with a research specialist in therapeutic gaming to tackle the problem of anxiety through box breathing—a hypoxic technique designed to oxygenate the blood and calm the nervous system. The goal was to move beyond a simple \"instructional\" video and create an environment that dynamically responded to the user's own physiological rhythm, making the invisible process of breathing a tangible, interactive experience.",
+        images: ["/projects/BreathSync Problem Space.jpg"]
       },
       {
-        title: "Role & Team Execution",
-        body: "Serving as Producer, Developer, and Technical Artist, I managed the multidisciplinary team while directly implementing the controller-tracking math and writing the custom shaders that visualized the breath-state transitions in real-time."
+        title: "The Creative Hack: Turning Controllers into Sensors",
+        body: "The core design challenge was capturing accurate respiratory data without a dedicated sensor. We developed a creative hardware \"hack\" that became the technical foundation of the project:",
+        list: [
+          "Physical Integration: We strapped a standard VR controller to the user's stomach, utilizing its high-fidelity IMU sensors to track the physical expansion and contraction of the abdomen.",
+          "Translational Mapping: I implemented the math required to translate the controller's raw translational movement into a real-time data stream. This stream directly scaled a central virtual orb: as the user inhaled, the orb grew; as they exhaled, it shrank.",
+          "The Gameplay Loop: The experience became a meditative \"syncing\" game. Users were tasked with matching the size and rhythm of their personal orb with a guiding, rhythmic orb that moved at the ideal pace for anxiety reduction."
+        ],
+        images: ["/projects/BreathSync VR Solution.jpg"]
+      },
+      {
+        title: "Role & Multi-Disciplinary Execution",
+        body: "Serving as Producer, Developer, and Technical Artist, I was responsible for ensuring the technical implementation never lost sight of the researcher's clinical intent.",
+        list: [
+          "Technical Artistry: I authored custom shaders that responded to the \"breath-state\" transitions. As the user achieved a perfect sync, the environment would dynamically reveal new visual layers, providing a rewarding, multi-sensory confirmation of their calm state.",
+          "Multidisciplinary Management: Under the intense 72-hour deadline of the XR Brain Jam, I managed the workflow between our researcher, designer, and engineer, ensuring we delivered a functional, stable prototype that stood up to the rigors of an academic and industry review."
+        ]
+      },
+      {
+        title: "Impact & Recognition",
+        body: "The success of this project led to a public talk at the Games for Change Festival 2021, where I presented our findings on biofeedback-driven design. This work reinforced my belief that the most profound technological solutions often come from looking at existing hardware through a creative, human-centric lens."
       }
     ]
   },
@@ -376,33 +514,34 @@ export const projects: Project[] = [
     },
     content: [
       {
-        title: "Vision & Look Development",
-        body: "I worked extensively on the vision, look development, and 3D asset creation for this Indie VR game. The core narrative focused heavily on raising environmental awareness around plastic pollution in our oceans."
+        videoUrl: "https://www.youtube.com/watch?v=mKKaZsjjy6g"
       },
       {
-        title: "Asset Creation Pipeline",
-        body: "I utilized a Maya, Substance Painter, and Unity workflow to create the 3D assets for the underwater scenes as well as the main storyline characters. Beyond 3D art, my responsibilities also spanned the level design and fundamental concept development for the game."
-      }
-    ]
-  },
-  {
-    slug: "divine-waltz",
-    categorySlug: "",
-    title: "Divine Waltz",
-    category: "Mixed Media Animation",
-    description: "A short mixed-media animated film exploring universal themes of growth and self-discovery, adapted from original poetry.",
-    techStack: ["Motion Capture", "3D Animation", "Cinematography", "Storyboarding"],
-    image: "/projects/Divine-Waltz.jpg",
-    challenge: "Translating abstract, written poetry into a cohesive visual language that merged traditional 2D animation sensibilities with complex 3D rendering and motion capture data.",
-    impact: "Created a deeply personal and visually stunning narrative that established my foundational approach to emotional storytelling and human-in-the-loop performance capture.",
-    content: [
-      {
-        title: "Poetic Adaptation",
-        body: "The project required dismantling a written poem into emotional beats, which were then mapped to visual metaphors and storyboards. Every color palette shift and camera movement was designed to mirror the stanza's pacing."
+        title: "Crafting an Underwater Narrative",
+        body: "As the Lead 3D Artist and Story Writer, I was responsible for bridging the gap between scientific reality and digital storytelling. My work began with the fundamental concept development, where I designed the levels and narrative beats to ensure the message of conservation remained the heartbeat of the gameplay.",
+        list: [
+          "Building the Atmosphere: I worked extensively on the vision and look development to create an underwater world that felt both beautiful and fragile.",
+          "Character-Driven Education: I developed the main storyline characters and environments to guide players through the \"Ocean Odyssey,\" ensuring the visual style supported the game's educational goals."
+        ],
+        images: ["/projects/Shot3.jpg"]
       },
       {
-        title: "Performance & Mocap",
-        body: "To capture authentic human expression, standard keyframe animation was augmented with motion capture technology. This hybrid approach allowed for hyper-realistic weight and momentum within a stylized, mixed-media digital aesthetic."
+        title: "The Asset Creation Pipeline: From Maya to Unity",
+        body: "To bring this indie project to life on a startup budget, I utilized a streamlined, high-efficiency technical pipeline.",
+        list: [
+          "3D Asset Workflow: I managed the full 3D pipeline—including modeling, UV mapping, texturing, rigging, and animation - using Maya and Substance Painter.",
+          "Character and Level Design: I designed the main character named Scuba, who is a submersible bot (inspired by Wall-E from Disney). I translated these designs into game-ready assets for Unity, where I led the level design to create intuitive, exploratory environments that maximized the sense of presence in a 360-degree VR space."
+        ],
+        images: ["/projects/web_04.jpg", "/projects/web_11.jpg", "/projects/HUb-01.jpg", "/projects/scuba.jpeg"],
+        compactGrid: true
+      },
+      {
+        title: "Beyond the Screen: Marketing & Advocacy",
+        body: "Because this was an indie venture, my role extended far beyond the technical. I acted as a primary advocate for the project, ensuring it found the audience and funding it needed to thrive.",
+        list: [
+          "Visual Storytelling: I produced marketing materials, including game trailers and promotional videos, to communicate the game's vision to potential backers.",
+          "Pitched for Growth: I represented the project at various conferences and festivals, pitching the game to build an audience and successfully raise the crowdfunding necessary for continued development."
+        ]
       }
     ]
   }

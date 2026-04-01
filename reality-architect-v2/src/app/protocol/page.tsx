@@ -1,5 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft, Terminal, ArrowRight } from "lucide-react";
+import { projects } from "@/data/projects";
 
 export default function Protocol() {
   return (
@@ -72,33 +74,39 @@ export default function Protocol() {
           </div>
         </section>
 
-        {/* Core Values */}
+        {/* Featured Projects */}
         <section className="space-y-8 pt-8 border-t border-[#222]">
           <header>
-            <h2 className="text-xl uppercase tracking-wider text-accent mb-6">Core Values</h2>
+            <h2 className="text-xl uppercase tracking-wider text-accent mb-2">Featured Projects</h2>
+            <p className="text-[#888] text-sm leading-relaxed">
+              Selected case studies from the vault.
+            </p>
           </header>
 
-          <div className="space-y-6">
-            <div className="space-y-2">
-              <h3 className="text-white text-sm uppercase tracking-wider">The Human Heart</h3>
-              <p className="text-[#aaa] text-sm leading-relaxed border-l-2 border-[#333] pl-4 py-1">
-                I am deeply interested in what makes us human—love, poetry, and music—and how these elements can be preserved in digital spaces.
-              </p>
-            </div>
-
-            <div className="space-y-2">
-              <h3 className="text-white text-sm uppercase tracking-wider">Integrity in Innovation</h3>
-              <p className="text-[#aaa] text-sm leading-relaxed border-l-2 border-[#333] pl-4 py-1">
-                I value environments that prioritize creative freedom and rigorous technical standards over easy shortcuts.
-              </p>
-            </div>
-
-            <div className="space-y-2">
-              <h3 className="text-white text-sm uppercase tracking-wider flex items-center gap-2">The &quot;Generalist&quot; Advantage</h3>
-              <p className="text-[#aaa] text-sm leading-relaxed border-l-2 border-[#333] pl-4 py-1">
-                From 3D Asset Creation to AI Automation, I maintain a high-level mastery over the full production pipeline to ensure nothing is lost in translation.
-              </p>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 not-prose">
+            {["inner-light", "scriptr", "modular-xr-system", "agentic-youtube-pipeline"].map((slug) => {
+              const project = projects.find((p) => p.slug === slug);
+              if (!project) return null;
+              return (
+                <Link key={project.slug} href={`/projects/${project.slug}`} className="p-5 border border-[#222] bg-black/40 rounded-lg hover:border-accent/40 transition-all duration-300 group hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(0,229,255,0.08)] flex flex-col">
+                  <div className="flex justify-between items-start mb-3">
+                    <span className="text-[10px] uppercase font-mono tracking-widest text-[#666] bg-[#111] px-2 py-1 rounded border border-[#222]">
+                      {project.category}
+                    </span>
+                  </div>
+                  {project.image && (
+                    <div className="relative w-full h-36 mb-4 rounded-md overflow-hidden border border-[#222]">
+                      <Image src={project.image} alt={project.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
+                    </div>
+                  )}
+                  <h3 className="text-base text-white font-medium mb-2">{project.title}</h3>
+                  <p className="text-xs text-[#888] leading-relaxed line-clamp-2 mb-4 flex-grow">{project.description}</p>
+                  <div className="mt-auto text-xs font-mono text-accent flex items-center">
+                    View Case Study <ArrowRight size={12} className="ml-2 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </section>
 
