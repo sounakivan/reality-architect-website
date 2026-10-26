@@ -253,9 +253,8 @@ export const projects: Project[] = [
     slug: "modular-xr-system",
     focus: ["xr-interaction", "learning"],
     contributions: ["Proposed a modular XR design system built on top of the Transfr SDK", "Standardized hand interactions, UI scaling and spatial ergonomics across simulations", "Built reusable tool templates — drills, wrenches, spray cans, scissors, wire cutters — in Node Flow with baked-in logic, spatial audio, haptics and affordances", "Worked with SDK engineers so the tooling natively supported the design system"],
-    metrics: [{"value": "40%", "label": "improvement in production efficiency", "method": "Measured from time tracked on projects per sprint"}],
     year: "2025–present",
-    team: "SDK developers, instructional designers, SMEs and a project manager",
+    team: "Travis Ruppe-Greene (Principal Unity Engineer), Joey Fonacier (Creative Director), Lisa Szolovitz (Senior XR Designer), Nikolina Kentric (Project Manager) and me (Senior XR Designer/Prototyper)",
     platform: "Unity · Transfr SDK",
     highlight: "40% production efficiency gain across VR modules",
     featured: true,
@@ -272,17 +271,16 @@ export const projects: Project[] = [
       companyUrl: "https://transfrinc.com/",
       timeline: "8 months"
     },
-    videoUrl: "https://www.youtube.com/watch?v=IeXSXgrtz3c",
     content: [
       {
         title: "The Fragmentation Problem",
         body: "As Transfr's library grew, the same tools — a drill, a wrench, a spray can — were rebuilt for each new training module. Technical artists and designers rebuilt the asset and its interaction from scratch every time, so the same tool could look, sound and behave differently from one module to the next. I proposed an XR design system: a modular layer for interaction design built on top of the Transfr SDK.",
-        images: ["/projects/xr-architecture.webp"]
+        images: ["/projects/xr-architecture.webp"],
+        centerImage: true
       },
       {
         title: "Aligning SDK Tools with Interaction Design",
-        body: "The proposal led to my direct involvement in the SDK's tools development. The design system only works if the tooling supports it, so I worked with SDK engineers to build its rules into the SDK: standard hand interactions, UI scaling and spatial ergonomics. Building an interaction became a matter of assembling standard parts instead of coding a one-off.",
-        images: ["/projects/nodeflow-drill.png"]
+        body: "The proposal led to my direct involvement in the SDK's tools development. The design system only works if the tooling supports it, so I worked with SDK engineers to build its rules into the SDK: standard hand interactions, UI scaling and spatial ergonomics. Building an interaction became a matter of assembling standard parts instead of coding a one-off."
       },
       {
         title: "Anatomy of a Tool Template",
@@ -293,7 +291,18 @@ export const projects: Project[] = [
           "Haptics: a feedback profile for the controller in the learner's hand.",
           "Affordances: the visual cues that tell a learner what the tool does and how to hold it."
         ],
-        images: ["/projects/nodeflow-logic.webp"]
+        images: ["/projects/nodeflow-drill.png", "/projects/nodeflow-logic.webp"]
+      },
+      {
+        title: "Persistent Tools, Decoupled Instruction",
+        body: "Tools had to be persistent throughout a simulation. A learner can pick a tool up from the table at any time, but it can only complete an instructional step, with the objects it interacts with, during a certain part of the sim. So the instructional feedback had to be decoupled from the tool's mechanics. A drill always behaves like a drill; what the coach says about it can change. That let us give different instructions in training and in hands-on practice, and support different teaching and learning styles with the same tool.\nThese were the design decision points for every template:",
+        list: [
+          "Persistence: how the tool's mechanics stay consistent across the whole sim, whether or not the current step needs it.",
+          "UX in VR: how the tool is grabbed, held and operated, and how it signals what it can do.",
+          "Instructional modularity: keeping step logic and feedback separate from the tool, so the same template serves training, practice and assessment.",
+          "Inputs and outputs: what a template should take in and report back so sim builders can wire it into any step without opening it up."
+        ],
+        videoUrl: "https://www.youtube.com/watch?v=IeXSXgrtz3c"
       },
       {
         title: "Before and After",
@@ -302,6 +311,11 @@ export const projects: Project[] = [
           "After: one template, with logic, audio, haptics and affordances included, is reused across a whole training module, which is often 10–12 simulations.",
           "Result: production efficiency improved by 40%, measured from time tracked on projects per sprint."
         ]
+      },
+      {
+        title: "Iterating on the Attach System",
+        body: "After applying the templates across multiple sims, we iterated on the SDK's attach system in general. The new attach system supports chaining interaction types (for example slide, twist and continuous grab), counting interactions, and nesting interactive objects inside each other. Here is a video demo of the new attach system, by Travis Ruppe-Greene.",
+        videoUrl: "https://www.youtube.com/watch?v=gJ6XdmnkMpk"
       }
     ]
   },
@@ -325,7 +339,7 @@ export const projects: Project[] = [
       {"value": "$214k", "label": "projected savings across 15 simulations", "method": "Projection, not a measured result: the 15 external simulations planned for 2025"},
     ],
     year: "2025–present",
-    team: "Senior Unity developers, content owners, creative director, Senior XR Designer",
+    team: "Travis Ruppe-Greene (Principal Unity Engineer), Yori Kvitchko (Engineering Manager), Westley Wadsworth (Content Owner), Joey Fonacier (Creative Director) and me (Senior XR Designer)",
     platform: "Unity · Transfr SDK · Claude",
     highlight: "Storyboard to in-headset in 2 days · $214k projected savings",
     featured: true,
@@ -483,7 +497,7 @@ export const projects: Project[] = [
     focus: ["learning"],
     contributions: ["Modeled and animated a library of cellular structures in Maya, with a PBR pipeline into Unreal Engine", "Wrote custom shaders for translucent, fluid cellular matter", "Prototyped the VR tools and UI students use to navigate the cell in Blueprints", "Iterated interactions with learning researchers so each one reinforced a biology concept"],
     links: [{"label": "View on Steam", "href": "https://store.steampowered.com/app/1889880/"}],
-    team: "Lead developer, PhD researchers and me (3D artist)",
+    team: "Aniol Saurina Maso (Lead Developer), PhD researchers at NYU Create Lab and me (3D and Technical Artist)",
     platform: "HTC Vive · PC VR (Steam)",
     highlight: "Released on Steam · Verizon-sponsored research",
     title: "Looking Inside Cells",

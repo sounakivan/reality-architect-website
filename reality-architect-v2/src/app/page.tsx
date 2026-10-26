@@ -78,7 +78,7 @@ export default function Home() {
           {proof.map((p) => (
             <div key={p.value}>
               <dt className="sr-only">{p.label}</dt>
-              <dd className="font-display text-3xl font-semibold tracking-tight text-ink md:text-4xl">{p.value}</dd>
+              <dd className="font-display text-3xl font-semibold tracking-tight md:text-4xl"><span className="text-holo">{p.value}</span></dd>
               <dd className="mt-1 text-sm leading-snug text-muted">{p.label}</dd>
             </div>
           ))}
