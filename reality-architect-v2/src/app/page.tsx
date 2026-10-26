@@ -1,95 +1,182 @@
-import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Terminal, Box } from "lucide-react";
-import { projects } from "@/data/projects";
-import ConstructionToast from "@/components/ConstructionToast";
+import { ArrowRight, FileText, Glasses, Hand, Brain, GraduationCap, Mail, Linkedin } from "lucide-react";
+import HudFrame from "@/components/HudFrame";
+import Media from "@/components/Media";
+import TiltCard from "@/components/TiltCard";
+import { Highlight, ProjectMeta, TechChips } from "@/components/ProjectCard";
+import { featuredProjects, focusAreas, type Focus } from "@/data/projects";
+import { site } from "@/data/site";
+
+const proof = [
+  { value: "100k+", label: "learners reached with VR training I designed" },
+  { value: "25+", label: "VR simulations shipped at Transfr" },
+  { value: "$214k", label: "projected savings from my AI production pipeline" },
+  { value: "7+ yrs", label: "across XR, 3D and interactive AI" },
+];
+
+const focusIcons: Record<Focus, typeof Hand> = {
+  "xr-interaction": Hand,
+  "spatial-ai": Glasses,
+  "neuro-wellness": Brain,
+  learning: GraduationCap,
+};
 
 export default function Home() {
   return (
-    <div className="min-h-[100dvh] w-full flex flex-col items-center justify-center p-6 md:p-12 lg:p-24 py-32 overflow-hidden relative">
-      <ConstructionToast />
-      <div className="absolute inset-0 z-[-1] flex items-center justify-center opacity-[0.15] pointer-events-none mix-blend-screen overflow-hidden">
-        <Image
-          src="/hero_ai_visual.png"
-          alt="AI Mission Control"
-          width={1200}
-          height={1200}
-          className="object-cover w-full h-full max-w-6xl max-h-6xl scale-110"
-          priority
-        />
-      </div>
+    <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
+      {/* Hero */}
+      <section className="grid items-center gap-12 pb-16 pt-14 md:pt-24 lg:grid-cols-12">
+        <div className="lg:col-span-7">
+          <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs text-accent">
+            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" />
+            {site.availability}
+          </p>
+          <h1 className="font-display text-4xl font-semibold leading-[1.08] tracking-tight text-ink sm:text-5xl md:text-6xl">
+            I design and ship <span className="text-holo">spatial experiences</span> — and build AI-driven systems that can scale them.
+          </h1>
+          <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">
+            I&apos;m Sounak, an XR designer and creative technologist. I&apos;ve built VR training used by 100k+ learners,
+            interaction design systems inside a production Unity SDK, and bio-responsive XR. Currently, I&apos;m keenly
+            exploring solutions on smartglasses and giving AI spatial context.
+          </p>
+          <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+            <Link
+              href="/projects"
+              className="inline-flex items-center justify-center gap-2 rounded-md bg-ink px-6 py-3 text-sm font-semibold text-bg transition-colors hover:bg-accent"
+            >
+              View work <ArrowRight size={16} />
+            </Link>
+            <a
+              href={site.resume}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-md border border-line-strong bg-surface px-6 py-3 text-sm font-semibold text-ink transition-colors hover:border-accent/60"
+            >
+              <FileText size={16} /> Resume (PDF)
+            </a>
+          </div>
+        </div>
+        <div className="lg:col-span-5">
+          <TiltCard className="mx-auto w-full max-w-sm lg:max-w-none">
+            <HudFrame className="relative aspect-[4/5] w-full shadow-[0_0_60px_rgba(94,234,212,0.08)]">
+              <Media
+                src="/sounak-ghosh.webp"
+                alt="Portrait of Sounak Ghosh"
+                fill
+                priority
+                sizes="(min-width: 1024px) 40vw, 384px"
+                className="object-cover object-[50%_40%]"
+              />
+            </HudFrame>
+          </TiltCard>
+        </div>
+      </section>
 
-      <div className="w-full max-w-5xl space-y-8 animate-in fade-in slide-in-from-bottom-8 duration-1000 z-10 relative">
-        <div className="inline-flex items-center rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-sm font-mono text-accent shadow-[0_0_15px_rgba(0,229,255,0.2)]">
-          <span className="flex h-2 w-2 rounded-full bg-accent mr-2 animate-pulse"></span>
-          System Online // V.2.0
-        </div>
-        
-        <h1 className="text-5xl md:text-7xl font-sans tracking-tight text-white max-w-4xl leading-tight font-bold">
-          Creative <span className="text-glow text-accent">Technologist</span><br />
-          & AI Strategist.
-        </h1>
-        
-        <p className="max-w-2xl text-lg md:text-xl text-[#888] font-mono leading-relaxed">
-          Hi I'm Sounak. I design interactive worlds where imagination meets intelligence. 
-          I help companies, productions and clients orchestrate agentic workflows and immersive systems using human-centric design.
-        </p>
-        
-        <div className="flex flex-col sm:flex-row gap-4 pt-8">
-          <Link href="/protocol" className="inline-flex items-center justify-center gap-2 rounded-md bg-white px-8 py-3 text-sm font-medium text-black transition-colors hover:bg-[#ccc]">
-            Read Protocol <ArrowRight size={16} />
+      {/* Proof */}
+      <section aria-label="Highlights" className="border-y border-line py-10">
+        <dl className="grid grid-cols-2 gap-8 md:grid-cols-4">
+          {proof.map((p) => (
+            <div key={p.value}>
+              <dt className="sr-only">{p.label}</dt>
+              <dd className="font-display text-3xl font-semibold tracking-tight text-ink md:text-4xl">{p.value}</dd>
+              <dd className="mt-1 text-sm leading-snug text-muted">{p.label}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+
+      {/* Selected work */}
+      <section className="py-20 md:py-28">
+        <div className="mb-12 flex items-end justify-between gap-6">
+          <div>
+            <p className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-accent">Selected work</p>
+            <h2 className="font-display text-3xl font-semibold tracking-tight text-ink md:text-4xl">Shipped, measured, in headset</h2>
+          </div>
+          <Link href="/projects" className="hidden shrink-0 items-center gap-2 text-sm text-muted transition-colors hover:text-accent sm:inline-flex">
+            All case studies <ArrowRight size={14} />
           </Link>
-          <Link href="/projects" className="inline-flex items-center justify-center gap-2 rounded-md border border-[#333] bg-[#111] px-8 py-3 text-sm font-medium text-white transition-colors hover:bg-[#222] hover:border-[#444]">
-            View Vault <Terminal size={16} />
-          </Link>
         </div>
-      </div>
-      
-      <div className="w-full max-w-5xl mt-32 z-10">
-        <h2 className="text-sm uppercase tracking-widest text-[#888] font-mono mb-8 flex items-center gap-4">
-          <span className="h-px bg-[#222] flex-1"></span>
-          Featured Projects
-          <span className="h-px bg-[#222] flex-1"></span>
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {["transfr-vr-education", "inner-light", "scriptr"].map((slug) => {
-            const project = projects.find(p => p.slug === slug);
-            if (!project) return null;
-            return (
-              <Link key={project.slug} href={`/projects/${project.slug}`} className="p-6 border border-[#222] bg-black/50 backdrop-blur-md rounded-lg hover:border-accent/50 transition-all duration-300 group hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(0,229,255,0.1)] flex flex-col h-full">
-              <div className="flex justify-between items-start mb-4">
-                <span className="text-[10px] uppercase font-mono tracking-widest text-[#666] bg-[#111] px-2 py-1 rounded border border-[#222]">
-                  {project.category}
+
+        <div className="space-y-20 md:space-y-28">
+          {featuredProjects.map((project, i) => (
+            <Link key={project.slug} href={`/projects/${project.slug}`} className="group grid items-center gap-8 md:grid-cols-12 md:gap-12">
+              {project.image && (
+                <HudFrame className={`relative aspect-video w-full md:col-span-7 ${i % 2 ? "md:order-2" : ""}`}>
+                  <Media
+                    src={project.image}
+                    alt=""
+                    fill
+                    sizes="(min-width: 768px) 58vw, 100vw"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                  />
+                </HudFrame>
+              )}
+              <div className="space-y-4 md:col-span-5">
+                <ProjectMeta project={project} />
+                <h3 className="font-display text-2xl font-semibold tracking-tight text-ink md:text-3xl">{project.title}</h3>
+                {project.caseStudyMeta?.role && <p className="text-sm text-muted">{project.caseStudyMeta.role}</p>}
+                <p className="leading-relaxed text-muted">{project.description}</p>
+                {project.highlight && <Highlight text={project.highlight} />}
+                <TechChips items={project.techStack} />
+                <span className="inline-flex items-center gap-2 pt-2 text-sm font-medium text-accent">
+                  Read case study <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
                 </span>
               </div>
-              {project.image && (
-                <div className="relative w-full h-48 mb-5 rounded-md overflow-hidden border border-[#222]">
-                  <Image src={project.image} alt={project.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
-                </div>
-              )}
-              <h3 className="text-lg text-white font-medium mb-3">{project.title}</h3>
-                <p className="text-sm text-[#888] leading-relaxed line-clamp-3 mb-6 flex-grow">{project.description}</p>
-                <div className="mt-auto text-xs font-mono text-accent flex items-center">
-                  View Case Study <ArrowRight size={14} className="ml-2 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </Link>
+            </Link>
+          ))}
+        </div>
+
+        <Link href="/projects" className="mt-16 inline-flex items-center gap-2 text-sm text-muted transition-colors hover:text-accent sm:hidden">
+          All case studies <ArrowRight size={14} />
+        </Link>
+      </section>
+
+      {/* Focus areas */}
+      <section className="border-t border-line py-20 md:py-28">
+        <p className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-accent">What I work on</p>
+        <h2 className="mb-12 max-w-2xl font-display text-3xl font-semibold tracking-tight text-ink md:text-4xl">
+          Interaction design and engineering for the spatial layer
+        </h2>
+        <div className="grid gap-4 sm:grid-cols-2">
+          {focusAreas.map((f) => {
+            const Icon = focusIcons[f.id];
+            return (
+              <div key={f.id} className="rounded-xl border border-line bg-surface/60 p-6">
+                <Icon size={20} className="mb-4 text-accent" />
+                <h3 className="font-display text-lg font-semibold text-ink">{f.label}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted">{f.blurb}</p>
+              </div>
             );
           })}
         </div>
+      </section>
 
-        <div className="mt-32 pt-16 border-t border-[#222] flex flex-col items-center justify-center text-center">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded bg-accent/10 border border-accent/20 mb-6 group-hover:bg-accent/20 transition-colors">
-            <Terminal size={24} className="text-accent shadow-[0_0_15px_rgba(0,229,255,0.4)]" />
-          </div>
-          <h2 className="text-3xl md:text-5xl font-sans font-bold text-white mb-6">Ready to Architect Your Reality?</h2>
-          <p className="text-[#888] font-mono text-sm max-w-lg mb-10 leading-relaxed">
-            Whether you're developing an agentic workflow, a spatial computing prototype, or an immersive product strategy, let's establish a connection.
-          </p>
-          <Link href="/contact" className="inline-flex items-center justify-center bg-accent text-black px-8 py-4 rounded-sm font-mono text-sm uppercase tracking-widest font-bold hover:bg-white hover:shadow-[0_0_20px_rgba(255,255,255,0.5)] transition-all duration-300 transform hover:-translate-y-1">
-            Initialize Comms <ArrowRight size={16} className="ml-2" />
-          </Link>
+      {/* Contact */}
+      <section className="mb-20 rounded-2xl border border-line bg-surface/60 px-6 py-14 text-center md:mb-28 md:px-12">
+        <h2 className="font-display text-3xl font-semibold tracking-tight text-ink md:text-4xl">
+          Building something in XR, smartglasses or spatial AI?
+        </h2>
+        <p className="mx-auto mt-4 max-w-xl leading-relaxed text-muted">
+          I&apos;m open to new opportunities — full-time teams, startups, freelance and consulting. If you&apos;re designing what
+          people do with their hands, eyes and voice in spatial computing, let&apos;s talk.
+        </p>
+        <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+          <a
+            href={`mailto:${site.email}`}
+            className="inline-flex items-center justify-center gap-2 rounded-md bg-ink px-6 py-3 text-sm font-semibold text-bg transition-colors hover:bg-accent"
+          >
+            <Mail size={16} /> Email me
+          </a>
+          <a
+            href={site.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 rounded-md border border-line-strong px-6 py-3 text-sm font-semibold text-ink transition-colors hover:border-accent/60"
+          >
+            <Linkedin size={16} /> LinkedIn
+          </a>
         </div>
-      </div>
+      </section>
     </div>
   );
 }
